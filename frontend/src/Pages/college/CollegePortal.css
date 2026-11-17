@@ -1,0 +1,250 @@
+/* ============================================================
+   COLLEGE PORTAL — separate actor stylesheet
+   Accent: violet. Scoped with .portal-college
+   ============================================================ */
+
+.portal-college { --portal-accent: #8b5cf6; }
+.portal-college .portal-side {
+  background: linear-gradient(180deg, #2a1352 0%, #35195f 60%, #200e40 100%);
+}
+.portal-college .portal-side a { border-left: 3px solid transparent; }
+.portal-college .portal-side a:hover {
+  background: linear-gradient(90deg, rgba(139, 92, 246, 0.3), transparent);
+  border-left-color: var(--accent-purple);
+  color: #fff;
+}
+
+.portal-college .portal-main h1 {
+  color: #45158f;
+  padding-left: 0.8rem;
+  border-left: 6px solid var(--accent-purple);
+  line-height: 1.05;
+}
+
+.portal-college .card {
+  border-top: 4px solid var(--accent-purple);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.portal-college .card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.portal-college .card h3 { color: #45158f; }
+.portal-college .card p  { font-size: 2rem; font-weight: 800; color: #35195f; margin: 0; }
+
+.portal-college .table thead th {
+  background: linear-gradient(180deg, var(--purple-100), #e9d8fb);
+  color: #45158f;
+  border-bottom: 2px solid var(--accent-purple);
+}
+.portal-college .table tbody tr:nth-child(even) { background: #faf6ff; }
+.portal-college .table tbody tr:hover { background: var(--purple-100); }
+
+.portal-college .batch-card {
+  border-left: 5px solid var(--accent-purple);
+}
+.portal-college .batch-actions { display: flex; gap: 0.6rem; margin-top: 0.75rem; }
+.portal-college .comment { max-height: 140px; }
+
+/* Student list inside a forwarded batch */
+.portal-college .batch-students {
+  margin: 0.5rem 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 0.5rem;
+}
+.portal-college .batch-students li {
+  background: var(--purple-100);
+  border: 1px solid #e4d1f8;
+  border-radius: var(--radius-sm);
+  padding: 0.45rem 0.7rem;
+  font-size: 0.86rem;
+  color: #35195f;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+/* ---- Individual student review list (per-student approve/reject) ---- */
+.portal-college .student-review-list {
+  margin: 0.6rem 0;
+  padding: 0;
+  list-style: none;
+}
+.portal-college .student-review-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--purple-100);
+  border: 1px solid #e4d1f8;
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.8rem;
+  margin-bottom: 0.45rem;
+}
+.portal-college .student-review-item .student-name { font-weight: 700; color: #35195f; }
+.portal-college .student-review-item .student-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 0.4rem;
+}
+.portal-college .student-review-item button { padding: 0.3rem 0.8rem; font-size: 0.8rem; }
+.portal-college .student-review-item button:disabled { opacity: 0.55; cursor: not-allowed; }
+.portal-college .batch-card .btn.secondary {
+  background: var(--ink-900);
+  color: var(--white);
+}
+
+/* ---- "Received from the CS Department" block ------------------------- */
+.portal-college .forwarded-info {
+  margin: 0.6rem 0 0.2rem;
+  padding: 0.6rem 0.85rem;
+  background: #f3ecff;
+  border: 1px solid #e0ccfb;
+  border-left: 4px solid var(--accent-purple);
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  color: #3b1a68;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.9rem;
+}
+.portal-college .forwarded-info b { color: #45158f; }
+.portal-college .forwarded-info .fw-when { color: #6b4a9c; font-size: 0.8rem; }
+
+/* ---- Success / notice line (replaces inline styles) ------------------ */
+.portal-college .notice-ok {
+  color: #166534;
+  font-weight: 700;
+  margin: 0 0 0.8rem;
+}
+.portal-college .notice-warn {
+  color: #92400e;
+  font-weight: 700;
+  margin: 0 0 0.8rem;
+}
+
+/* ---- Ordered audit trail (History page) ------------------------------ */
+.portal-college .trail {
+  margin: 0.25rem 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+.portal-college .trail li {
+  position: relative;
+  padding: 0.35rem 0 0.35rem 1.9rem;
+  border-left: 2px solid #e4d1f8;
+  margin-left: 0.55rem;
+  font-size: 0.85rem;
+  color: #3b1a68;
+}
+.portal-college .trail li:last-child { border-left-color: transparent; }
+.portal-college .trail li::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  left: -0.7rem;
+  top: 0.3rem;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 50%;
+  background: var(--accent-purple);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.portal-college .trail li .step-when { display: block; color: #6b4a9c; font-size: 0.76rem; }
+
+/* ---- Document / completeness chips ----------------------------------- */
+.portal-college .chip {
+  display: inline-block;
+  padding: 0.12rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: #ede9fe;
+  color: #4c1d95;
+  border: 1px solid #ddd0fb;
+}
+.portal-college .chip.ok    { background: #dcfce7; color: #166534; border-color: #bbf7d0; }
+.portal-college .chip.warn  { background: #fef3c7; color: #92400e; border-color: #fde68a; }
+.portal-college .chip.bad   { background: #fee2e2; color: #991b1b; border-color: #fecaca; }
+
+/* ---- Batch header row ------------------------------------------------ */
+.portal-college .batch-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.35rem;
+}
+.portal-college .batch-head h3 { margin: 0; }
+
+/* ---------- Responsive media queries ---------- */
+@media (max-width: 1024px) {
+  .portal-college.portal-shell { grid-template-columns: 210px 1fr; }
+}
+@media (max-width: 768px) {
+  .portal-college .portal-main { padding: 1rem 0.9rem 2.25rem; }
+  .portal-college .portal-main h1 { 
+    font-size: clamp(1.4rem, 5vw, 1.65rem);
+    padding-left: 0.7rem;
+    border-left-width: 5px;
+  }
+  .portal-college .table { 
+    min-width: 620px;
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+@media (max-width: 640px) {
+  .portal-college .cards { grid-template-columns: 1fr 1fr; }
+  .portal-college .batch-students {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 520px) {
+  .portal-college .portal-main { padding: 0.75rem 0.625rem 2rem; }
+  .portal-college .cards { grid-template-columns: 1fr; }
+  .portal-college .batch-actions { flex-direction: column; }
+  .portal-college .batch-actions .btn { width: 100%; }
+  .portal-college .student-review-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .portal-college .student-review-item .student-actions {
+    margin-left: 0;
+    width: 100%;
+    flex-direction: column;
+  }
+  .portal-college .student-review-item .student-actions .btn {
+    width: 100%;
+  }
+}
+
+/* ---------- Device compatibility ---------- */
+@media (max-width: 768px) {
+  .portal-college.portal-shell { grid-template-columns: 1fr; }
+  .portal-college .batch-head { flex-direction: column; align-items: flex-start; }
+  .portal-college .batch-actions { flex-wrap: wrap; }
+  .portal-college .forwarded-info { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 480px) {
+  .portal-college .student-review-list { gap: 0.6rem; }
+  .portal-college .trail { padding-left: 1rem; }
+  .portal-college .table { min-width: 560px; }
+  .portal-college .batch-actions .btn { width: 100%; }
+}
+
+@media (max-width: 380px) {
+  .portal-college .portal-main { padding: 0.7rem 0.5rem 1.75rem; }
+  .portal-college .batch-card { padding: 0.8rem; }
+  .portal-college .trail li { font-size: 0.84rem; }
+}

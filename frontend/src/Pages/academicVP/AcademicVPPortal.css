@@ -1,0 +1,419 @@
+/* ============================================================
+   ACADEMIC VP PORTAL — Premium Indigo Theme
+   Scoped with .portal-academicvp
+   ============================================================ */
+
+/* ── Sidebar ── */
+.portal-academicvp { --portal-accent: #818cf8; }
+.portal-academicvp .portal-side {
+  background: linear-gradient(180deg, #170a38 0%, #1e0e4a 60%, #110726 100%);
+}
+.portal-academicvp .portal-side a {
+  border-left: 3px solid transparent;
+  transition: all 0.25s ease;
+}
+.portal-academicvp .portal-side a:hover {
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.3), transparent);
+  border-left-color: #818cf8;
+  color: #fff;
+}
+.portal-academicvp .portal-side a.active {
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.45), transparent);
+  border-left-color: #a5b4fc;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ── Main heading ── */
+.portal-academicvp .portal-main h1 {
+  color: #312e81;
+  padding-left: 0.8rem;
+  border-left: 6px solid #6366f1;
+  line-height: 1.05;
+}
+
+/* ── Cards (generic) ── */
+.portal-academicvp .card {
+  border-top: 4px solid #6366f1;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border-radius: 14px;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.portal-academicvp .card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(99,102,241,0.04), transparent);
+  pointer-events: none;
+}
+.portal-academicvp .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(99, 102, 241, 0.18);
+}
+.portal-academicvp .card h3 { color: #312e81; font-size: 0.92rem; font-weight: 600; }
+.portal-academicvp .card p  { font-size: 2rem; font-weight: 800; color: #3730a3; margin: 0; }
+
+/* ── Table ── */
+.portal-academicvp .table thead th {
+  background: linear-gradient(180deg, #eef2ff, #e0e7ff);
+  color: #312e81;
+  border-bottom: 2px solid #6366f1;
+}
+.portal-academicvp .table tbody tr:nth-child(even) { background: #fafafe; }
+.portal-academicvp .table tbody tr:hover { background: #eef2ff; }
+
+/* ============================================================
+   HERO — Role + Functions Cards
+   ============================================================ */
+.avp-hero {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Role Card */
+.avp-role-card {
+  background: linear-gradient(145deg, #312e81, #4338ca 60%, #6366f1);
+  color: #fff;
+  border-radius: 18px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+.avp-role-card::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+}
+.avp-role-card::after {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+}
+.avp-role-icon {
+  font-size: 3.2rem;
+  margin-bottom: 0.8rem;
+  animation: avpBounce 2s ease infinite;
+}
+@keyframes avpBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.avp-role-title {
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+.avp-role-desc {
+  font-size: 0.92rem;
+  opacity: 0.9;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Functions Card */
+.avp-functions-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 1.5rem 1.8rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e0e7ff;
+}
+.avp-func-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #312e81;
+  margin: 0 0 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid #e0e7ff;
+}
+.avp-func-icon { font-size: 1.3rem; }
+.avp-func-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.avp-func-item {
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+.avp-func-item:hover {
+  background: #eef2ff;
+}
+.avp-func-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.7rem;
+  text-decoration: none;
+  color: #1e1b4b;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.avp-func-link:hover {
+  color: #4338ca;
+}
+.avp-func-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #4338ca);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.avp-func-emoji {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.avp-func-text { flex: 1; }
+.avp-func-arrow {
+  opacity: 0;
+  color: #6366f1;
+  font-weight: 700;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.avp-func-item:hover .avp-func-arrow {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+/* ============================================================
+   STATISTICS CARDS
+   ============================================================ */
+.avp-stat-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+.avp-stat-cards .card {
+  padding: 1.3rem 1.2rem;
+  text-align: center;
+}
+.avp-card-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.avp-stat-cards .card small {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.78rem;
+  color: #6b7280;
+}
+
+.avp-card-pending { border-top-color: #f59e0b !important; }
+.avp-card-pending .avp-card-icon { filter: none; }
+.avp-card-pending p { color: #b45309 !important; }
+
+.avp-card-processed { border-top-color: #10b981 !important; }
+.avp-card-processed p { color: #047857 !important; }
+
+.avp-card-students { border-top-color: #6366f1 !important; }
+.avp-card-students p { color: #3730a3 !important; }
+
+/* ============================================================
+   QUICK ACTIONS
+   ============================================================ */
+.avp-quick-actions {
+  margin-bottom: 2rem;
+}
+.avp-quick-actions h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #312e81;
+  margin-bottom: 1rem;
+}
+.avp-action-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.avp-action-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1.2rem 1rem;
+  border-radius: 14px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.avp-action-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.1), transparent);
+  pointer-events: none;
+}
+.avp-action-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+.avp-action-emoji { font-size: 1.8rem; }
+
+.avp-action-eligibility { background: linear-gradient(135deg, #6366f1, #4338ca); }
+.avp-action-docs        { background: linear-gradient(135deg, #0ea5e9, #0369a1); }
+.avp-action-endorse     { background: linear-gradient(135deg, #10b981, #047857); }
+.avp-action-history     { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+
+/* ============================================================
+   SECTION TITLE
+   ============================================================ */
+.avp-section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #312e81;
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e0e7ff;
+}
+.avp-section-icon { font-size: 1.25rem; }
+
+/* ============================================================
+   EMPTY STATE
+   ============================================================ */
+.avp-empty-state {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background: #f8fafc;
+  border-radius: 16px;
+  border: 2px dashed #c7d2fe;
+}
+.avp-empty-icon {
+  font-size: 3rem;
+  margin-bottom: 0.8rem;
+}
+.avp-empty-state p {
+  font-size: 1rem;
+  color: #4b5563;
+  margin: 0 0 0.4rem;
+  font-weight: 500;
+}
+
+/* ============================================================
+   BATCH CARD ENHANCEMENTS
+   ============================================================ */
+.avp-batch {
+  border-radius: 14px;
+  border: 1px solid #e0e7ff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  margin-bottom: 1rem;
+  transition: box-shadow 0.2s ease;
+}
+.avp-batch:hover {
+  box-shadow: 0 6px 24px rgba(99, 102, 241, 0.12);
+}
+
+/* .btn.accent for the Endorse/Reject link */
+.portal-academicvp .btn.accent {
+  background: linear-gradient(135deg, #6366f1, #4338ca);
+  color: #fff;
+  border: none;
+}
+.portal-academicvp .btn.accent:hover {
+  background: linear-gradient(135deg, #818cf8, #6366f1);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .portal-academicvp.portal-shell { grid-template-columns: 210px 1fr; }
+  .avp-hero { grid-template-columns: 1fr; }
+  .avp-action-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .portal-academicvp .portal-main { padding: 1rem 0.9rem 2.25rem; }
+  .portal-academicvp .table { 
+    min-width: 620px;
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .portal-academicvp .portal-main h1 { 
+    font-size: clamp(1.4rem, 5vw, 1.65rem);
+    padding-left: 0.7rem;
+    border-left-width: 5px;
+  }
+  .avp-stat-cards { grid-template-columns: 1fr; }
+  .avp-action-grid { grid-template-columns: 1fr 1fr; }
+  .avp-role-card { padding: 1.75rem 1.25rem; }
+  .avp-functions-card { padding: 1.25rem 1.4rem; }
+}
+@media (max-width: 640px) {
+  .avp-action-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 520px) {
+  .portal-academicvp .portal-main { padding: 0.75rem 0.625rem 2rem; }
+  .avp-stat-cards { grid-template-columns: 1fr; }
+  .avp-action-grid { grid-template-columns: 1fr; }
+  .avp-action-btn { padding: 1rem; }
+  .avp-func-item:hover { background: transparent; }
+}
+
+/* ---------- Device compatibility ---------- */
+@media (max-width: 768px) {
+  .portal-academicvp.portal-shell { grid-template-columns: 1fr; }
+  .portal-academicvp .batch-head,
+  .portal-academicvp .batch-actions { flex-direction: column; align-items: stretch; }
+  .portal-academicvp .batch-head .btn,
+  .portal-academicvp .batch-actions .btn { width: 100%; }
+  .avp-batch .batch-head { align-items: flex-start; }
+}
+
+@media (max-width: 480px) {
+  .portal-academicvp .avp-func-item { flex-wrap: wrap; }
+  .portal-academicvp .avp-func-arrow { display: none; }
+  .portal-academicvp .table { min-width: 560px; }
+  .portal-academicvp .btn.accent { width: 100%; }
+}
+
+@media (max-width: 380px) {
+  .portal-academicvp .portal-main { padding: 0.7rem 0.5rem 1.75rem; }
+  .portal-academicvp .avp-role-card,
+  .portal-academicvp .avp-functions-card { padding: 1rem; }
+  .portal-academicvp .avp-action-btn { padding: 0.9rem; }
+  .portal-academicvp .avp-func-list { gap: 0.5rem; }
+}

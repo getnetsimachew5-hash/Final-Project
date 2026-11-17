@@ -1,0 +1,1001 @@
+/* ============================================================
+   Home page — Modern Attractive Stylesheet
+   ------------------------------------------------------------
+   Scoped with `.home-page` to avoid leaking styles.
+   Uses design tokens from src/styles.css
+   ============================================================ */
+
+/* ---------- 1. Page Shell ---------- */
+.home-page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: radial-gradient(ellipse at top, #f8fafc 0%, #f1f5f9 40%, #e2e8f0 100%);
+  /* `clip` (not `hidden`) trims sideways overflow WITHOUT creating a scroll
+     container — so the sticky navbar stays visible while scrolling.
+     `overflow-x: hidden` here used to break the navbar on this page. */
+  overflow-x: clip;
+}
+
+/* ---------- 2. Hero Section ---------- */
+.home-page .hero {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1240px;
+  margin: 2rem auto 0;
+  padding: clamp(3.5rem, 8vw, 6rem) clamp(1.5rem, 6vw, 4rem);
+  border-radius: 24px;
+  color: var(--white);
+  text-align: center;
+  background: radial-gradient(ellipse at top left, #10b981 0%, #065f46 40%, #022c22 100%);
+  box-shadow: 0 25px 80px -20px rgba(6, 78, 59, 0.6);
+  isolation: isolate;
+}
+
+/* Animated mesh gradient overlay */
+.home-page .hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(251, 191, 36, 0.25) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(16, 185, 129, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+  animation: heroPulse 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Floating decorative elements */
+.home-page .hero::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.15) 0%, transparent 70%);
+  filter: blur(60px);
+  animation: float 12s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes heroPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+.home-page .hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 880px;
+  margin: 0 auto;
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-page .hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  margin-bottom: 1.5rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fde047;
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(251, 191, 36, 0.4);
+  box-shadow: 0 8px 32px rgba(251, 191, 36, 0.2);
+}
+
+.home-page .hero-badge::before {
+  content: '✨';
+  font-size: 1rem;
+}
+
+.home-page .hero h1 {
+  margin: 0 0 1rem;
+  color: var(--white);
+  font-size: clamp(2.5rem, 7vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  font-weight: 900;
+  text-shadow: 0 4px 60px rgba(0, 0, 0, 0.4);
+}
+
+.home-page .hero-desc {
+  max-width: 72ch;
+  margin: 0 auto 2rem;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  line-height: 1.8;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.home-page .hero-desc strong {
+  color: #fde047;
+  font-weight: 700;
+}
+
+.home-page .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.home-page .hero .btn {
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Shimmer effect on primary button */
+.home-page .hero .btn.primary {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: #1e293b;
+  box-shadow: 0 12px 40px rgba(251, 191, 36, 0.4);
+  border: none;
+}
+
+.home-page .hero .btn.primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s;
+}
+
+.home-page .hero .btn.primary:hover::before {
+  left: 100%;
+}
+
+.home-page .hero .btn.primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 16px 50px rgba(251, 191, 36, 0.5);
+}
+
+.home-page .hero .btn.secondary {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.home-page .hero .btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.home-page .hero .btn.ghost {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+.home-page .hero .btn.ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-3px);
+}
+
+/* ---------- 3. Shared Section Layout ---------- */
+.home-page .about-section,
+.home-page .stages-section,
+.home-page .actors-section,
+.home-page .benefits-section,
+.home-page .cta-section {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 4vw, 2rem) 0;
+}
+
+.home-page .cta-section {
+  padding-bottom: clamp(4rem, 8vw, 6rem);
+}
+
+.home-page .about-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.home-page .section-header {
+  max-width: 780px;
+  margin: 0 auto clamp(2.5rem, 5vw, 3.5rem);
+  text-align: center;
+}
+
+.home-page .section-header h2 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 900;
+  background: linear-gradient(135deg, #065f46 0%, #047857 50%, #10b981 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.02em;
+}
+
+.home-page .section-header p {
+  margin: 0;
+  color: var(--ink-600);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.8;
+}
+
+/* ---------- 4. About Section ---------- */
+.home-page .about-section {
+  position: relative;
+}
+
+.home-page .about-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #10b981, #fbbf24);
+  border-radius: 2px;
+}
+
+.home-page .about-section h2 {
+  margin: 2rem 0 1.25rem;
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  font-weight: 900;
+}
+
+.home-page .about-section p {
+  color: var(--ink-700);
+  font-size: clamp(1rem, 2vw, 1.05rem);
+  line-height: 1.9;
+  margin-bottom: 1.25rem;
+}
+
+.home-page .about-section p:last-child {
+  margin-bottom: 0;
+}
+
+.home-page .about-section strong {
+  color: #065f46;
+  font-weight: 700;
+}
+
+/* ---------- 4b. About — 3 articles ----------
+   Desktop / tablet  → INLINE (display:flex, flex-direction:row)
+   Small phones     → BLOCK  (display:block, stacked one below another)
+   All sizes use fluid clamps so the text never overflows. */
+.home-page .about-section .about-lead {
+  max-width: 78ch;
+  margin: 0 auto 2.25rem;
+  color: var(--ink-700);
+}
+
+.home-page .about-articles {
+  display: flex;              /* INLINE layout on wide screens */
+  flex-direction: row;
+  align-items: stretch;
+  gap: clamp(1rem, 2vw, 1.5rem);
+  margin-top: 0.5rem;
+  text-align: left;
+}
+
+.home-page .about-article {
+  flex: 1 1 0;                /* 3 equal columns */
+  min-width: 0;               /* prevents overflow / hidden text */
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #ffffff 0%, #f7faf8 100%);
+  border: 1px solid rgba(6, 95, 70, 0.12);
+  border-radius: 18px;
+  padding: clamp(1.25rem, 2vw, 1.75rem) clamp(1.1rem, 2vw, 1.5rem);
+  box-shadow: 0 10px 30px -14px rgba(6, 78, 59, 0.28);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.home-page .about-article::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #059669, #fbbf24);
+}
+
+.home-page .about-article:hover {
+  transform: translateY(-6px);
+  border-color: rgba(5, 150, 105, 0.45);
+  box-shadow: 0 18px 40px -16px rgba(6, 78, 59, 0.4);
+}
+
+.home-page .about-article-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+}
+
+.home-page .about-article-num {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #047857;
+  background: rgba(5, 150, 105, 0.1);
+  border: 1px solid rgba(5, 150, 105, 0.25);
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+}
+
+.home-page .about-article-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.home-page .about-article-title {
+  margin: 0 0 0.6rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: #064e3b;
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+}
+
+.home-page .about-article .about-article-text {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--ink-700);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* ---------- 5. Six-Stage Pipeline ---------- */
+.home-page .stages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  position: relative;
+}
+
+.home-page .stage-card {
+  position: relative;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.02),
+    0 10px 40px -10px rgba(6, 78, 59, 0.15);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.home-page .stage-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.home-page .stage-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #10b981 0%, #fbbf24 50%, #10b981 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  to { background-position: -200% 0; }
+}
+
+.home-page .stage-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 60px -15px rgba(6, 78, 59, 0.3),
+    0 0 0 1px rgba(16, 185, 129, 0.3);
+  border-color: transparent;
+}
+
+.home-page .stage-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  position: relative;
+  z-index: 1;
+}
+
+.home-page .stage-num {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #10b981 0%, #065f46 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1;
+}
+
+.home-page .stage-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  font-size: 2rem;
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+.home-page .stage-card h3 {
+  margin: 0 0 0.6rem;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--ink-900);
+  position: relative;
+  z-index: 1;
+}
+
+.home-page .stage-card p {
+  margin: 0;
+  color: var(--ink-600);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- 6. Actors Section ---------- */
+.home-page .actors-section {
+  border: none;
+}
+
+.home-page .actors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.home-page .actor-card {
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 16px;
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  box-shadow: 0 4px 20px -8px rgba(15, 23, 42, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.home-page .actor-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #10b981, #3b82f6);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+
+.home-page .actor-card:hover::before {
+  transform: scaleX(1);
+}
+
+.home-page .actor-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px -12px rgba(16, 185, 129, 0.3);
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.home-page .actor-card h4 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #065f46;
+}
+
+.home-page .actor-card p {
+  margin: 0;
+  color: var(--ink-600);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+/* Actors bullet list */
+.home-page .actors-bullet-list {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 10px 40px -15px rgba(15, 23, 42, 0.25);
+  overflow: hidden;
+}
+
+.home-page .actors-bullet-title {
+  padding: 1.25rem 1.75rem;
+  background: linear-gradient(90deg, #065f46 0%, #047857 100%);
+  color: var(--white);
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.home-page .actors-bullet-list li + li {
+  border-top: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.home-page .actor-bullet-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  padding: 1rem 1.75rem;
+  color: var(--ink-800);
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.home-page .actor-bullet-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: linear-gradient(90deg, #10b981, transparent);
+  transition: width 0.25s ease;
+}
+
+.home-page .actor-bullet-link b {
+  color: var(--ink-900);
+  font-weight: 700;
+}
+
+.home-page .actor-bullet-link:hover {
+  background: linear-gradient(90deg, #ecfdf5 0%, transparent 100%);
+  color: var(--ink-900);
+  padding-left: 2.25rem;
+}
+
+.home-page .actor-bullet-link:hover::before {
+  width: 4px;
+}
+
+.home-page .actor-page {
+  margin-left: auto;
+  color: #047857;
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.home-page .actor-page::after {
+  content: '→';
+  transition: transform 0.25s ease;
+}
+
+.home-page .actor-bullet-link:hover .actor-page::after {
+  transform: translateX(4px);
+}
+
+/* ---------- 7. Benefits Section ---------- */
+.home-page .benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.home-page .benefit-card {
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 8px 30px -12px rgba(15, 23, 42, 0.25);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.home-page .benefit-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #10b981 0%, #fbbf24 100%);
+}
+
+.home-page .benefit-card:hover {
+  transform: translateX(8px);
+  box-shadow: 0 16px 50px -15px rgba(16, 185, 129, 0.35);
+}
+
+.home-page .benefit-card h4 {
+  margin: 0 0 0.6rem;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #065f46;
+}
+
+.home-page .benefit-card p {
+  margin: 0;
+  color: var(--ink-600);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* ---------- 8. Call to Action ---------- */
+.home-page .cta-box {
+  background: radial-gradient(ellipse at center, #065f46 0%, #022c22 100%);
+  border-radius: 24px;
+  padding: clamp(3rem, 6vw, 4.5rem) clamp(1.5rem, 6vw, 4rem);
+  text-align: center;
+  color: var(--white);
+  box-shadow: 0 30px 80px -25px rgba(2, 44, 34, 0.8);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.home-page .cta-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 30% 20%, rgba(251, 191, 36, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(16, 185, 129, 0.25) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.home-page .cta-box::after {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.15) 0%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.home-page .cta-box h2 {
+  margin: 0 0 0.75rem;
+  color: var(--white);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 4px 40px rgba(0, 0, 0, 0.4);
+}
+
+.home-page .cta-box p {
+  margin: 0 auto;
+  max-width: 56ch;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.8;
+  position: relative;
+  z-index: 1;
+}
+
+.home-page .cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.home-page .cta-box .btn {
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 12px;
+}
+
+.home-page .cta-box .btn.primary {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: #1e293b;
+  box-shadow: 0 12px 40px rgba(251, 191, 36, 0.4);
+  border: none;
+}
+
+.home-page .cta-box .btn.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 50px rgba(251, 191, 36, 0.5);
+}
+
+.home-page .cta-box .btn.secondary {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.home-page .cta-box .btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px);
+}
+
+/* ---------- 9. Footer ----------
+   The Home page now renders the shared <Footer /> component
+   (components/Footer.jsx → .sipms-footer in styles.css) so the footer is
+   identical on every page. The old .home-footer styles were removed. */
+
+/* ============================================================
+   Responsive Design
+   ============================================================ */
+@media (max-width: 968px) {
+  .home-page .hero {
+    margin: 1.5rem 1rem 0;
+    border-radius: 20px;
+  }
+
+  /* Tablets still keep the 3 articles INLINE, just tighter */
+  .home-page .about-articles {
+    gap: 1rem;
+  }
+
+  .home-page .about-article {
+    padding: 1.4rem 1.15rem;
+  }
+
+  .home-page .about-article .about-article-text {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-page .hero {
+    margin: 1rem 0.75rem 0;
+    padding: 3rem 1.5rem;
+    border-radius: 18px;
+  }
+
+  .home-page .about-section,
+  .home-page .stages-section,
+  .home-page .actors-section,
+  .home-page .benefits-section,
+  .home-page .cta-section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .home-page .section-header {
+    margin-bottom: 2rem;
+  }
+
+  /* Phones / small tablets → BLOCK layout: each article stacks in full width */
+  .home-page .about-articles {
+    display: block;             /* switch from inline row to block stack */
+    text-align: left;
+  }
+
+  .home-page .about-article {
+    width: 100%;
+    max-width: 100%;
+    flex: none;
+    padding: 1.35rem 1.25rem;
+  }
+
+  .home-page .about-article + .about-article {
+    margin-top: 1rem;           /* spacing between stacked blocks */
+  }
+
+  .home-page .about-article:hover {
+    transform: none;            /* no hover lift on touch screens */
+  }
+
+  .home-page .stages-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-page .stage-card {
+    padding: 1.75rem;
+  }
+
+  .home-page .actors-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+
+  .home-page .actor-bullet-link {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.9rem 1.25rem;
+  }
+
+  .home-page .actor-bullet-link:hover {
+    padding-left: 1.5rem;
+  }
+
+  .home-page .actor-page {
+    margin-left: 0;
+  }
+
+  .home-page .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-page .benefit-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .home-page .cta-box {
+    border-radius: 18px;
+  }
+}
+
+@media (max-width: 560px) {
+  .home-page .hero-actions,
+  .home-page .cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .home-page .hero .btn,
+  .home-page .cta-box .btn {
+    width: 100%;
+  }
+
+  .home-page .stage-card,
+  .home-page .actor-card,
+  .home-page .benefit-card {
+    padding: 1.5rem;
+  }
+
+  .home-page .stage-num {
+    font-size: 2rem;
+  }
+
+  .home-page .stage-icon {
+    width: 56px;
+    height: 56px;
+    font-size: 1.75rem;
+  }
+
+  .home-page .actors-bullet-title {
+    font-size: 0.75rem;
+    padding: 1rem 1.25rem;
+  }
+
+  .home-page .actor-bullet-link {
+    padding: 0.85rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .home-page .actor-bullet-link:hover {
+    padding-left: 1.4rem;
+  }
+
+  .home-page .about-article {
+    padding: 1.15rem 1rem;
+    border-radius: 14px;
+  }
+
+  .home-page .about-article-title {
+    font-size: 1.02rem;
+  }
+
+  .home-page .about-article .about-article-text {
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+
+  .home-page .about-article-icon {
+    font-size: 1.3rem;
+  }
+}
+
+/* ---------- Device compatibility ---------- */
+@media (max-width: 380px) {
+  .home-page .hero {
+    margin: 0.75rem 0.5rem 0;
+    padding: 2.25rem 1rem;
+  }
+  .home-page .about-section,
+  .home-page .stages-section,
+  .home-page .actors-section,
+  .home-page .benefits-section,
+  .home-page .cta-section {
+    padding-left: 0.65rem;
+    padding-right: 0.65rem;
+  }
+  .home-page .stage-card,
+  .home-page .actor-card,
+  .home-page .benefit-card {
+    padding: 1.1rem;
+  }
+  .home-page .cta-box {
+    padding: 2.25rem 1rem;
+  }
+  .home-page .actors-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Phones in landscape should not waste vertical space */
+@media (max-height: 500px) and (orientation: landscape) {
+  .home-page .hero {
+    padding: 2rem 1.25rem;
+  }
+  .home-page .hero-actions {
+    margin-top: 1.25rem;
+  }
+}

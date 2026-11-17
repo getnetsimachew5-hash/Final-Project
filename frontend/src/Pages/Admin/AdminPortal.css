@@ -1,0 +1,90 @@
+/* ============================================================
+   SYSTEM ADMINISTRATOR PORTAL — separate actor stylesheet
+   Accent: slate + crimson. Scoped with .portal-admin
+   ============================================================ */
+
+.portal-admin { --portal-accent: #60a5fa; }
+.portal-admin .portal-side {
+  background: linear-gradient(180deg, #0b1120 0%, #101a30 60%, #070d1a 100%);
+}
+.portal-admin .portal-side a { border-left: 3px solid transparent; }
+.portal-admin .portal-side a:hover {
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.28), transparent);
+  border-left-color: #60a5fa;
+  color: #fff;
+}
+
+.portal-admin .portal-main h1 {
+  color: var(--ink-900);
+  padding-left: 0.8rem;
+  border-left: 6px solid var(--blue-600);
+  line-height: 1.05;
+}
+
+.portal-admin .card {
+  border-top: 4px solid var(--blue-600);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.portal-admin .card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.portal-admin .card h3 { color: var(--ink-900); }
+.portal-admin .card p  { font-size: 2rem; font-weight: 800; color: var(--blue-600); margin: 0; }
+
+.portal-admin .table thead th {
+  background: var(--ink-900);
+  color: var(--ink-100);
+  border-bottom: 2px solid var(--blue-600);
+}
+.portal-admin .table tbody tr:nth-child(even) { background: #f8fafc; }
+.portal-admin .table tbody tr:hover { background: var(--blue-100); }
+
+/* ---------- Responsive media queries ---------- */
+@media (max-width: 1024px) {
+  .portal-admin.portal-shell { grid-template-columns: 210px 1fr; }
+}
+@media (max-width: 768px) {
+  .portal-admin .portal-main { padding: 1rem 0.9rem 2.25rem; }
+  .portal-admin .portal-main h1 { 
+    font-size: clamp(1.4rem, 5vw, 1.7rem);
+    padding-left: 0.7rem;
+    border-left-width: 5px;
+  }
+  .portal-admin .table { 
+    min-width: 700px;
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .portal-admin .modal > * { max-width: 92vw; }
+}
+@media (max-width: 640px) {
+  .portal-admin .cards { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 520px) {
+  .portal-admin .cards { grid-template-columns: 1fr; }
+  .portal-admin .card p { font-size: 1.75rem; }
+  .portal-admin .portal-main { padding: 0.75rem 0.625rem 2rem; }
+  .portal-admin .portal-main .btn { width: 100%; }
+  .portal-admin .modal { padding: 0.75rem; align-items: flex-start; }
+  .portal-admin .modal > * { max-height: 92vh; padding: 1rem; }
+}
+
+@media (max-width: 768px) {
+  /* Keep the admin dashboard single-column on every phone/tablet. */
+  .portal-admin.portal-shell { grid-template-columns: 1fr; }
+  .portal-admin .table th,
+  .portal-admin .table td { white-space: nowrap; }
+}
+
+@media (max-width: 380px) {
+  .portal-admin .portal-main { padding: 0.7rem 0.5rem 1.75rem; }
+  .portal-admin .portal-main h1 { font-size: 1.35rem; }
+  .portal-admin .table { min-width: 600px; }
+  .portal-admin .table th,
+  .portal-admin .table td { padding: 0.5rem 0.55rem; font-size: 0.8rem; }
+}
+
+@media (max-width: 320px) {
+  .portal-admin .portal-main { padding: 0.6rem 0.45rem 1.5rem; }
+  .portal-admin .table { min-width: 540px; }
+}

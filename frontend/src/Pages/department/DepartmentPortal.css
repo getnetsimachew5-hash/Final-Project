@@ -1,0 +1,420 @@
+﻿/* ============================================================
+   CS DEPARTMENT PORTAL â€” separate actor stylesheet
+   Accent: emerald green. Scoped with .portal-dept
+   ============================================================ */
+
+/* ---------- Sidebar theme ---------- */
+.portal-dept { --portal-accent: #10b981; }
+.portal-dept .portal-side {
+  background: linear-gradient(180deg, #04281e 0%, #052e1c 60%, #032014 100%);
+}
+.portal-dept .portal-side a {
+  border-left: 3px solid transparent;
+}
+.portal-dept .portal-side a:hover {
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.22), transparent);
+  border-left-color: var(--primary-500);
+  color: #fff;
+}
+
+/* ---------- Content theme ---------- */
+.portal-dept .portal-main h1 {
+  color: var(--primary-900);
+  padding-left: 0.8rem;
+  border-left: 6px solid var(--primary-600);
+  line-height: 1.05;
+}
+.portal-dept .portal-main h3 {
+  color: var(--primary-800);
+}
+
+.portal-dept .card {
+  border-top: 4px solid var(--primary-600);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.portal-dept .card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+.portal-dept .card h3 { color: var(--primary-800); }
+.portal-dept .card p  { font-size: 2rem; font-weight: 800; color: var(--primary-900); margin: 0; }
+
+.portal-dept .table thead th {
+  background: linear-gradient(180deg, var(--primary-50), #d9f2e6);
+  color: var(--primary-900);
+  border-bottom: 2px solid var(--primary-600);
+}
+.portal-dept .table tbody tr:nth-child(even) { background: #f4fbf7; }
+.portal-dept .table tbody tr:hover { background: var(--primary-50); }
+
+.portal-dept .batch-card {
+  border-left: 5px solid var(--primary-600);
+}
+
+/* Credentials highlight (username / password columns) */
+.portal-dept .cred {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.85rem;
+  background: var(--primary-50);
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  color: var(--primary-900);
+}
+
+/* Missing-info banner shown in this portal */
+.portal-dept .warn-banner {
+  background: var(--yellow-100);
+  border: 1px solid #fcd34d;
+  border-left: 5px solid var(--accent-amber);
+  color: var(--yellow-700);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1rem;
+  margin: 0.75rem 0;
+  font-weight: 600;
+}
+
+/* ============================================================
+   RESPONSIVE LAYOUT â€” CS Department portal (small â†’ large screens)
+   ============================================================ */
+
+/* --- Stat / summary cards: reflow by width, never overflow --- */
+.portal-dept .cards {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+/* --- Batch toolbar (search + action buttons + selected counter) --- */
+.portal-dept .batch-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0.75rem 0 1rem;
+}
+.portal-dept .batch-tools .search {
+  flex: 1 1 260px;
+  min-width: 200px;
+}
+.portal-dept .batch-tools .btn {
+  flex: 0 0 auto;
+}
+.portal-dept .batch-count {
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--primary-900);
+  background: var(--primary-50);
+  border: 1px solid var(--primary-100);
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  white-space: nowrap;
+}
+
+/* --- Forwarding note: full width, comfortable height --- */
+.portal-dept .note {
+  width: 100%;
+  min-height: 110px;
+  margin: 0.5rem 0 0.9rem;
+  resize: vertical;
+}
+
+/* ============================================================
+   COMPONENTS â€” shared by every CS Department page
+   ============================================================ */
+
+/* --- Page header with a side action (EditBatch) --- */
+.portal-dept .page-toolbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+.portal-dept .page-toolbar h1 { margin-top: 0; }
+.portal-dept .page-toolbar p  { margin: 0.35rem 0 0; }
+
+/* --- Empty state (no rows to show) --- */
+.portal-dept .empty {
+  border: 1.5px dashed var(--ink-300);
+  background: var(--white);
+  color: var(--ink-500);
+  padding: 1rem 1.2rem;
+  border-radius: var(--radius);
+  text-align: center;
+  font-size: 0.95rem;
+  margin: 1rem 0;
+}
+.portal-dept .empty a { color: var(--primary-700); font-weight: 600; }
+
+/* --- Row-level action buttons (Ask to Correct, Edit, Rejectâ€¦) --- */
+.portal-dept .row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* --- Highlighted table cells --- */
+.portal-dept .cell-name { font-weight: 600; white-space: nowrap; }
+.portal-dept .cell-id {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  color: var(--ink-600);
+}
+.portal-dept .reject-reason {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--red-600);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  max-width: 22ch;
+}
+.portal-dept .blocked-reason {
+  color: var(--red-600);
+  font-weight: 600;
+}
+
+/* --- Automatic missing-information checklist (Student Information / Verify) --- */
+.portal-dept .cell-missing { vertical-align: top; }
+.portal-dept .missing-list {
+  margin: 0;
+  padding-left: 1.05rem;
+  display: grid;
+  gap: 0.2rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--red-600);
+  max-width: 26ch;
+}
+.portal-dept .missing-list li { margin: 0; }
+.portal-dept .ok-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: var(--primary-50);
+  border: 1px solid var(--primary-100);
+  color: var(--primary-800);
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.portal-dept .table tbody tr.needs-fix > td { background: #fff7f7; }
+.portal-dept .table tbody tr.needs-fix:hover > td { background: #fef2f2; }
+
+/* --- Completion-letter link chip --- */
+.portal-dept .file-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background: var(--blue-100);
+  border: 1px solid #bfdbfe;
+  color: var(--blue-600);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s, transform 0.15s;
+}
+.portal-dept .file-link:hover {
+  background: var(--blue-600);
+  color: var(--white);
+  transform: translateY(-1px);
+}
+
+/* --- Selected / excluded rows (CreateBatch + EditBatch) --- */
+.portal-dept .table tbody tr.selected > td {
+  background: var(--primary-100);
+}
+.portal-dept .table tbody tr.blocked-row > td { background: #fef2f2; }
+
+/* --- Totals row of the batch tables --- */
+.portal-dept .table tfoot td,
+.portal-dept .table tr.subtotal-row > td {
+  background: var(--primary-50);
+  font-weight: 800;
+  color: var(--primary-900);
+  border-top: 2px solid var(--primary-600);
+}
+
+/* --- Sub-section heading inside a page --- */
+.portal-dept .section-title { margin-top: 1.5rem; }
+
+/* --- Save / cancel row of a form --- */
+.portal-dept .form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 0.5rem;
+}
+
+/* --- Read-only (locked) fields, e.g. editing a forwarded batch --- */
+.portal-dept .form-grid input:disabled,
+.portal-dept .form-grid select:disabled {
+  background: var(--ink-100);
+  color: var(--ink-500);
+  cursor: not-allowed;
+}
+
+/* --- Batch card header: title on the left, action button on the right --- */
+.portal-dept .batch-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.portal-dept .batch-card-head h3 { margin: 0 0 0.25rem; }
+.portal-dept .batch-card-head p  { margin: 0; }
+
+/* --- Audit / approval trail inside a batch card --- */
+.portal-dept .batch-card ul {
+  margin: 0.8rem 0 0;
+  padding-left: 1.15rem;
+  display: grid;
+  gap: 0.4rem;
+  color: var(--ink-600);
+  font-size: 0.9rem;
+}
+.portal-dept .batch-card ul b {
+  color: var(--primary-800);
+  text-transform: capitalize;
+}
+
+/* --- CreateBatch form: it also holds a toolbar and wide tables, so
+       remove the shared form's 720px cap and let those span the row. --- */
+.portal-dept .form-grid {
+  max-width: none;
+}
+.portal-dept .form-grid > .batch-tools,
+.portal-dept .form-grid > .table,
+.portal-dept .form-grid > h3,
+.portal-dept .form-grid > p {
+  grid-column: 1 / -1;
+}
+
+/* --- Wide data tables scroll sideways instead of crushing columns.
+       The CS Dept tables have up to 12 columns, so the table is always a
+       horizontal scroll container whose width stays = the page width
+       (min-width:0 cancels the global 560px floor that would otherwise be
+       clipped by .portal-main). This applies at every screen size, because
+       even a large laptop cannot fit all 12 columns. --- */
+.portal-dept .table {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* --- Tablet --- */
+@media (max-width: 1024px) {
+  .portal-dept.portal-shell { grid-template-columns: 210px 1fr; }
+  .portal-dept .portal-main { padding: 1.25rem 1.25rem 2.5rem; }
+}
+
+/* --- Small tablets / large phones --- */
+@media (max-width: 768px) {
+  .portal-dept .portal-main { padding: 1rem 0.9rem 2.25rem; }
+  .portal-dept .portal-main h1 { 
+    font-size: clamp(1.4rem, 5vw, 1.7rem);
+    padding-left: 0.7rem;
+    border-left-width: 5px;
+  }
+}
+
+/* --- Phones --- */
+@media (max-width: 640px) {
+  .portal-dept .cards { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 520px) {
+  .portal-dept .portal-main { padding: 0.75rem 0.625rem 2rem; }
+  .portal-dept .portal-main h1 { font-size: clamp(1.25rem, 5.5vw, 1.4rem); padding-left: 0.6rem; }
+  .portal-dept .cards { grid-template-columns: 1fr; }
+  .portal-dept .card p { font-size: 1.6rem; }
+  .portal-dept .batch-tools { gap: 0.5rem; }
+  .portal-dept .batch-tools .search { flex-basis: 100%; }
+  .portal-dept .batch-tools .btn { flex: 1 1 auto; }
+  .portal-dept .page-toolbar { flex-direction: column; align-items: flex-start; }
+}
+
+/* --- Very small phones --- */
+@media (max-width: 420px) {
+  .portal-dept .portal-main,
+  .portal-dept .portal-main * {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .portal-dept .portal-main h1,
+  .portal-dept .portal-main h2,
+  .portal-dept .portal-main h3,
+  .portal-dept .portal-main p,
+  .portal-dept .portal-main span,
+  .portal-dept .portal-main a,
+  .portal-dept .portal-main td,
+  .portal-dept .portal-main th,
+  .portal-dept .portal-main label {
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+    white-space: normal !important;
+  }
+
+  .portal-dept .table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .portal-dept .row-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .portal-dept .row-actions .btn {
+    width: 100%;
+  }
+
+  .portal-dept .batch-card-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 380px) {
+  .portal-dept .portal-main { padding: 0.75rem 0.625rem 2rem; }
+  .portal-dept .portal-main h1 { font-size: 1.25rem; }
+  .portal-dept .cards { grid-template-columns: 1fr; }
+  .portal-dept .form-grid { grid-template-columns: 1fr; }
+  .portal-dept .batch-tools { flex-direction: column; align-items: stretch; }
+  .portal-dept .batch-tools .btn { width: 100%; }
+}
+
+/* ---------- Device compatibility ---------- */
+@media (max-width: 768px) {
+  .portal-dept.portal-shell { grid-template-columns: 1fr; }
+  .portal-dept .batch-card-head,
+  .portal-dept .page-toolbar { flex-direction: column; align-items: stretch; }
+  .portal-dept .batch-card-head .btn,
+  .portal-dept .page-toolbar .btn { width: 100%; }
+  .portal-dept .row-actions { flex-wrap: wrap; }
+}
+
+@media (max-width: 480px) {
+  .portal-dept .batch-card { padding: 0.85rem; }
+  .portal-dept .batch-tools .search { min-width: 0; }
+  .portal-dept .table { min-width: 560px; }
+}
+
+@media (max-width: 320px) {
+  .portal-dept .portal-main { padding: 0.6rem 0.45rem 1.5rem; }
+  .portal-dept .batch-card { padding: 0.7rem; }
+  .portal-dept .table { min-width: 520px; }
+}
+

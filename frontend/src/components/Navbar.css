@@ -1,0 +1,374 @@
+
+/* ===== Main navbar =====
+   ONE single navbar colour for the whole system: the same brand emerald
+   gradient is used on the public pages AND on every actor dashboard, so
+   logging in no longer changes the navbar colour. Change the colour here
+   only — do not override it per portal. */
+.sipms-header {
+  width: 100%;
+  min-height: 76px;
+  box-sizing: border-box;
+  padding: 12px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #065f46 100%);
+  border-bottom: 2px solid rgba(251, 191, 36, 0.55);
+  color: white;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* ===== University logo and brand ===== */
+.sipms-brand {
+  flex-shrink: 0;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  text-decoration: none;
+}
+
+.university-logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: white;
+  padding: 3px;
+  box-sizing: border-box;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.brand-text strong {
+  font-size: 23px;
+  letter-spacing: 1px;
+}
+
+.brand-text small {
+  font-size: 12px;
+  color: #d9eadf;
+}
+
+/* ===== Navigation links ===== */
+.sipms-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+}
+
+.sipms-nav > a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.sipms-nav > a:hover,
+.dropdown-menu a:hover {
+  color: #f4c542;
+}
+
+.register-link {
+  padding: 10px 15px;
+  border-radius: 6px;
+  background: #e7b832;
+  color: #153c2e !important;
+  font-weight: 700 !important;
+}
+
+/* ===== Portals dropdown ===== */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  border: none;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  font: inherit;
+  padding: 10px 0;
+}
+
+.dropdown-toggle:hover {
+  color: #f4c542;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 215px;
+  background: white;
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu,
+.dropdown.dropdown-open .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 11px 12px;
+  color: #173e30;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.dropdown-menu a:hover {
+  background: #edf5ef;
+}
+
+/* ===== User and buttons ===== */
+.user-chip {
+  max-width: 220px;
+  overflow-wrap: anywhere;
+  font-size: 13px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.18);
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.nav-button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #c63d3d;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.nav-button:hover {
+  background: #a92b2b;
+}
+
+/* ===== Mobile menu button ===== */
+.menu-toggle {
+  display: none;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+  padding: 7px 11px;
+  background: transparent;
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+/* ===== Tablet: 1024px and below ===== */
+@media screen and (max-width: 1024px) {
+  .sipms-header {
+    padding: 12px 3%;
+    gap: 14px;
+  }
+
+  .brand-text strong {
+    font-size: 20px;
+  }
+
+  .sipms-nav {
+    gap: 12px;
+  }
+
+  .sipms-nav > a,
+  .dropdown-toggle {
+    font-size: 13px;
+  }
+
+  .user-chip {
+    max-width: 150px;
+  }
+}
+
+/* ===== Mobile: 768px and below ===== */
+@media screen and (max-width: 768px) {
+  .sipms-header {
+    min-height: 68px;
+    flex-wrap: wrap;
+    padding: 10px 4%;
+  }
+
+  /* Portal headers carry a role badge plus the brand. Let them shrink
+     instead of forcing the page wider than a phone screen. */
+  .sipms-header.portal .sipms-brand {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+  }
+  .sipms-header.portal .brand-link {
+    min-width: 0;
+    overflow: hidden;
+  }
+  .sipms-header.portal .portal-badge {
+    max-width: 40vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .sipms-header.portal .brand-text { min-width: 0; }
+  .sipms-header.portal .brand-text strong,
+  .sipms-header.portal .brand-text small {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .university-logo {
+    width: 44px;
+    height: 44px;
+  }
+
+  .brand-text strong {
+    font-size: 19px;
+  }
+
+  .brand-text small {
+    font-size: 11px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .sipms-nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 12px 0 6px;
+  }
+
+  .sipms-nav.nav-open {
+    display: flex;
+    max-height: 70vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .sipms-nav > a,
+  .dropdown-toggle {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    text-align: left;
+    font-size: 15px;
+  }
+
+  .dropdown-menu {
+    position: static;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    margin-top: 4px;
+    box-shadow: none;
+    background: #0b4935;
+  }
+
+  .dropdown-menu a {
+    color: white;
+    padding: 12px 20px;
+  }
+
+  .dropdown-menu a:hover {
+    color: #f4c542;
+    background: #155b43;
+  }
+
+  .user-chip {
+    max-width: 100%;
+    padding: 12px;
+  }
+
+  .nav-button {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .register-link {
+    text-align: center !important;
+  }
+}
+
+/* ===== Small phones: 380px and below ===== */
+@media screen and (max-width: 380px) {
+  .sipms-header {
+    padding: 10px 3%;
+  }
+
+  /* On the smallest phones the role badge is the useful identifier. */
+  .sipms-header.portal .brand-text { display: none; }
+  .sipms-header.portal .portal-badge { max-width: 55vw; }
+
+  .university-logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-link {
+    gap: 7px;
+  }
+
+  .brand-text strong {
+    font-size: 16px;
+  }
+
+  .brand-text small {
+    font-size: 10px;
+  }
+
+  .menu-toggle {
+    padding: 5px 8px;
+    font-size: 21px;
+  }
+}
+
+/* ---------- 320px devices ---------- */
+@media screen and (max-width: 320px) {
+  .sipms-header {
+    padding: 8px 2.5%;
+    gap: 8px;
+  }
+  .university-logo {
+    width: 32px;
+    height: 32px;
+  }
+  .brand-text strong {
+    font-size: 15px;
+  }
+  .brand-text small {
+    display: none;
+  }
+  .portal-badge {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.55rem;
+  }
+  .menu-toggle {
+    font-size: 20px;
+    padding: 4px 7px;
+  }
+}

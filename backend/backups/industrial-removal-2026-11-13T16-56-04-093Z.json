@@ -1,0 +1,718 @@
+{
+  "exportedAt": "2026-11-13T16:56:04.048Z",
+  "batches": [
+    {
+      "_id": "6ad37179c9465e4101a77066",
+      "batchName": "2025",
+      "semester": "Second",
+      "academicYear": "2025/26",
+      "createdBy": "6abcca855bfb200e61ce354f",
+      "students": [
+        "6ad3707cc9465e4101a77041",
+        "6ad33549531fc2986827ea27",
+        "6abdf5c6e5527684e06cb9c1"
+      ],
+      "status": "pending_industrial",
+      "history": [
+        {
+          "actor": "6abcca855bfb200e61ce354f",
+          "action": "forwarded_to_college",
+          "comment": "pay",
+          "at": "2026-10-17T13:01:46.739Z",
+          "_id": "6ad371bac9465e4101a770da"
+        },
+        {
+          "actor": "6abcca855bfb200e61ce3550",
+          "action": "student_approved",
+          "comment": "all studen are good",
+          "at": "2026-10-17T13:30:42.021Z",
+          "meta": {
+            "student": "6ad3707cc9465e4101a77041"
+          },
+          "_id": "6ad378820f2388ce267db4b3"
+        },
+        {
+          "actor": "6abcca855bfb200e61ce3550",
+          "action": "student_approved",
+          "comment": "all studen are good",
+          "at": "2026-10-17T13:30:42.032Z",
+          "meta": {
+            "student": "6ad33549531fc2986827ea27"
+          },
+          "_id": "6ad378820f2388ce267db4b4"
+        },
+        {
+          "actor": "6abcca855bfb200e61ce3550",
+          "action": "student_approved",
+          "comment": "all studen are good",
+          "at": "2026-10-17T13:30:42.036Z",
+          "meta": {
+            "student": "6abdf5c6e5527684e06cb9c1"
+          },
+          "_id": "6ad378820f2388ce267db4b5"
+        },
+        {
+          "actor": "6abcca855bfb200e61ce3550",
+          "action": "forwarded_to_academic_vp",
+          "comment": "Approved students forwarded to Academic VP after individual review",
+          "at": "2026-10-17T13:32:42.033Z",
+          "meta": {
+            "approvedStudents": "3"
+          },
+          "_id": "6ad378fa0f2388ce267db59d"
+        },
+        {
+          "actor": "6abcca855bfb200e61ce3551",
+          "action": "endorsed",
+          "comment": "all information  correct",
+          "at": "2026-10-17T13:57:56.028Z",
+          "_id": "6ad37ee4ef3d7d61d1e4a186"
+        },
+        {
+          "actor": "6abcca855bfb200e61ce3552",
+          "action": "authorized",
+          "comment": "Admin approval for testing - budget confirmed.",
+          "at": "2026-10-17T14:12:17.922Z",
+          "_id": "6ad38241ef3d7d61d1e4a1c2"
+        }
+      ],
+      "createdAt": "2026-10-17T13:00:41.493Z",
+      "updatedAt": "2026-10-17T14:12:17.925Z",
+      "__v": 5
+    },
+    {
+      "_id": "6ad9e06c9eabf41c2863859e",
+      "batchName": "2024",
+      "semester": "Second",
+      "academicYear": "2025/26",
+      "createdBy": "6abcca855bfb200e61ce354f",
+      "students": [
+        "6ad9de149eabf41c28638561",
+        "6ad9de6f9eabf41c28638562",
+        "6ad9dec29eabf41c28638563",
+        "6ad3707cc9465e4101a77041",
+        "6ad33549531fc2986827ea27",
+        "6abdf5c6e5527684e06cb9c1"
+      ],
+      "status": "pending_industrial",
+      "history": [
+        {
+          "actor": "6abcca855bfb200e61ce354f",
+          "action": "forwarded_to_college",
+          "comment": "good way and keeps up!!!!",
+          "at": "2026-10-22T10:09:13.877Z",
+          "_id": "6ad9e0c99eabf41c2863867d"
+        },
+        {
+          "actor": "6abcca855bfb200e61ce3550",
+          "action": "student_approved",
+          "comment": "good and correct information!!!",
+          "at": "2026-10-22T10:12:09.548Z",
+          "meta": {
+            "student": "6ad9de149eabf41c28638561"
+          },
+          "_id": "6ad9e1799eabf41c2863883d"
+        },
+        {
+          "actor": "6abcca855bfb200e61ce3550",
+          "action": "student_approved",
+          "comment": "ddd",
+          "at": "2026-10-22T10:12:55.511Z",
+          "meta": {
+            "student": "6ad3707cc9465e4101a77041"
+          },
+          "_id": "6ad9e1a79eabf41c28638867"
+        },
+        {
+          "actor": "6abcca855bfb200e61ce3550",
+          "action": "student_approved",
+          "comment": "ghhjj",
+          "at": "2026-10-22T10:13:01.588Z",
+          "meta": {
+            "student": "6ad9de6f9eabf41c28638562"
+          },
+          "_id": "6ad9e1ad9eabf41c28638893"
+        },
+        {
+          "actor": "6abcca855bfb200e61ce3550",
+          "action": "student_approved",
+          "comment": "hyuyutt",
+          "at": "2026-10-22T10:13:08.585Z",
+          "meta": {
+            "student": "6ad33549531fc2986827ea27"
+          },
+          "_id": "6ad9e1b49eabf41c286388c1"
+        },
+        {
+          "actor": "6abcca855bfb200e61ce3550",
+          "action": "student_approved",
+          "comment": "dfgg",
+          "at": "2026-10-22T10:13:15.072Z",
+          "meta": {
+            "student": "6abdf5c6e5527684e06cb9c1"
+          },
+          "_id": "6ad9e1bb9eabf41c286388f1"
+        },
+        {
+          "actor": "6abcca855bfb200e61ce3550",
+          "action": "student_approved",
+          "comment": "fddsww",
+          "at": "2026-10-22T10:13:22.471Z",
+          "meta": {
+            "student": "6ad9dec29eabf41c28638563"
+          },
+          "_id": "6ad9e1c29eabf41c28638923"
+        },
+        {
+          "actor": "6abcca855bfb200e61ce3550",
+          "action": "forwarded_to_academic_vp",
+          "comment": "Approved students forwarded to Academic VP after individual review",
+          "at": "2026-10-22T10:13:26.626Z",
+          "meta": {
+            "approvedStudents": "6"
+          },
+          "_id": "6ad9e1c69eabf41c28638957"
+        },
+        {
+          "actor": "6abcca855bfb200e61ce3551",
+          "action": "endorsed",
+          "comment": "gkd,sukgy';ebjnxfewj",
+          "at": "2026-10-22T10:14:38.425Z",
+          "_id": "6ad9e20e9eabf41c28638b06"
+        },
+        {
+          "actor": "6abcca855bfb200e61ce3552",
+          "action": "authorized",
+          "comment": "lhbcfgdsdggxxxxxxfg",
+          "at": "2026-10-22T10:17:11.351Z",
+          "_id": "6ad9e2a79eabf41c28638bb3"
+        }
+      ],
+      "createdAt": "2026-10-22T10:07:40.335Z",
+      "updatedAt": "2026-10-22T10:17:11.353Z",
+      "__v": 10
+    },
+    {
+      "_id": "6aea1e2049de73de9980c771",
+      "batchName": "2023",
+      "semester": "First",
+      "academicYear": "2025/26",
+      "createdBy": "6ae85685c0b463dcfdbdfbff",
+      "students": [
+        "6aea1b0a49de73de9980c70b",
+        "6aea1b4d49de73de9980c70c",
+        "6aea1b9949de73de9980c70d",
+        "6aea1bdd49de73de9980c70e"
+      ],
+      "status": "pending_industrial",
+      "history": [
+        {
+          "actor": "6ae85685c0b463dcfdbdfbff",
+          "action": "forwarded_to_college",
+          "comment": "please tell me this student",
+          "at": "2026-11-03T17:49:06.057Z",
+          "_id": "6aea1e9249de73de9980c82d"
+        },
+        {
+          "actor": "6ae85685c0b463dcfdbdfc00",
+          "action": "student_approved",
+          "comment": "dfghjk",
+          "at": "2026-11-03T17:53:02.968Z",
+          "meta": {
+            "student": "6aea1b0a49de73de9980c70b"
+          },
+          "_id": "6aea1f7e49de73de9980cbd3"
+        },
+        {
+          "actor": "6ae85685c0b463dcfdbdfc00",
+          "action": "student_approved",
+          "comment": "fffffffffffff",
+          "at": "2026-11-03T17:53:12.035Z",
+          "meta": {
+            "student": "6aea1bdd49de73de9980c70e"
+          },
+          "_id": "6aea1f8849de73de9980cc16"
+        },
+        {
+          "actor": "6ae85685c0b463dcfdbdfc00",
+          "action": "student_approved",
+          "comment": "fffffffffffffffffffff",
+          "at": "2026-11-03T17:53:27.937Z",
+          "meta": {
+            "student": "6aea1b9949de73de9980c70d"
+          },
+          "_id": "6aea1f9749de73de9980cc5b"
+        },
+        {
+          "actor": "6ae85685c0b463dcfdbdfc00",
+          "action": "student_approved",
+          "comment": "fffffffffffffff",
+          "at": "2026-11-03T17:53:36.243Z",
+          "meta": {
+            "student": "6aea1b4d49de73de9980c70c"
+          },
+          "_id": "6aea1fa049de73de9980cca2"
+        },
+        {
+          "actor": "6ae85685c0b463dcfdbdfc00",
+          "action": "forwarded_to_academic_vp",
+          "comment": "ffffffffffffffffffffffffff",
+          "at": "2026-11-03T17:54:06.122Z",
+          "meta": {
+            "approvedStudents": "4"
+          },
+          "_id": "6aea1fbe49de73de9980cd2d"
+        },
+        {
+          "actor": "6ae85685c0b463dcfdbdfc01",
+          "action": "endorsed",
+          "comment": "yyyyyyyyyyyyyyyyyyy",
+          "at": "2026-11-09T05:36:05.295Z",
+          "_id": "6af15bc55d7cdf1b70c53beb"
+        },
+        {
+          "actor": "6ae85685c0b463dcfdbdfc02",
+          "action": "payment_confirmed",
+          "comment": "Payment availability confirmed — 12,000 ETB authorized (ref: One-step authorization)",
+          "at": "2026-11-09T05:37:22.756Z",
+          "_id": "6af15c125d7cdf1b70c53d17"
+        },
+        {
+          "actor": "6ae85685c0b463dcfdbdfc02",
+          "action": "approved",
+          "comment": "yyyyyyyyyyyyyyyyyyyyy",
+          "at": "2026-11-09T05:37:22.769Z",
+          "_id": "6af15c125d7cdf1b70c53d21"
+        },
+        {
+          "actor": "6ae85685c0b463dcfdbdfc02",
+          "action": "authorized",
+          "comment": "yyyyyyyyyyyyyyyyyyyyy",
+          "at": "2026-11-09T05:37:22.782Z",
+          "_id": "6af15c125d7cdf1b70c53d2c"
+        }
+      ],
+      "createdAt": "2026-11-03T17:47:12.089Z",
+      "updatedAt": "2026-11-09T05:37:22.784Z",
+      "__v": 10,
+      "adminVpComment": "yyyyyyyyyyyyyyyyyyyyy",
+      "adminVpDecidedAt": "2026-11-09T05:37:22.769Z",
+      "adminVpDecidedBy": "6ae85685c0b463dcfdbdfc02",
+      "adminVpDecision": "approved",
+      "adminVpForwardedAt": "2026-11-09T05:37:22.782Z",
+      "authorizedAmount": 12000,
+      "batchMonth": "",
+      "paymentConfirmedAt": "2026-11-09T05:37:22.756Z",
+      "paymentConfirmedBy": "6ae85685c0b463dcfdbdfc02",
+      "paymentReference": "One-step authorization",
+      "financeAmountConfirmedAt": null,
+      "financeAmountConfirmedBy": null,
+      "financeConfirmedAmount": null,
+      "financeModeSelectedAt": null,
+      "financePaidAt": null,
+      "financePaymentConfirmedAt": null,
+      "financePaymentConfirmedBy": null,
+      "financePaymentMode": null,
+      "financeReference": null,
+      "financeReportGeneratedAt": null,
+      "financeReviewConfirmedAt": null,
+      "financeReviewConfirmedBy": null,
+      "financeSelectedRequest": null,
+      "financeSimulatedAt": null,
+      "financeSimulatedBy": null,
+      "industrialComment": null,
+      "industrialDecidedAt": null,
+      "industrialDecidedBy": null,
+      "industrialDecision": null,
+      "industrialForwardedAt": null,
+      "industrialLettersReviewedAt": null,
+      "industrialLettersReviewedBy": null
+    },
+    {
+      "_id": "6af153c383aacb0e4a5b2f5d",
+      "batchName": "DEMO-PendingAdminVP",
+      "batchMonth": "January",
+      "batchCode": "BT-202526-F01-DEMOPEND-3",
+      "semester": "First",
+      "academicYear": "2025/26",
+      "createdBy": "6ae85685c0b463dcfdbdfbff",
+      "students": [
+        "6aea28239174ded60049e4aa"
+      ],
+      "status": "pending_industrial",
+      "history": [
+        {
+          "actor": "6ae85685c0b463dcfdbdfbff",
+          "action": "approved",
+          "comment": "Documents checked — forwarding to the College Office",
+          "at": "2026-11-09T05:01:55.918Z",
+          "_id": "6af153c383aacb0e4a5b2f5e"
+        },
+        {
+          "actor": "6ae85685c0b463dcfdbdfc00",
+          "action": "approved",
+          "comment": "College review passed — endorsing to the Academic VP",
+          "at": "2026-11-09T05:01:55.921Z",
+          "_id": "6af153c383aacb0e4a5b2f5f"
+        },
+        {
+          "actor": "6ae85685c0b463dcfdbdfc01",
+          "action": "approved",
+          "comment": "Academic eligibility confirmed — sending to the Admin VP",
+          "at": "2026-11-09T05:01:55.924Z",
+          "_id": "6af153c383aacb0e4a5b2f60"
+        },
+        {
+          "actor": "6ae85685c0b463dcfdbdfc02",
+          "action": "payment_confirmed",
+          "comment": "Payment availability confirmed — 3,000 ETB authorized (ref: One-step authorization)",
+          "at": "2026-11-09T05:37:31.796Z",
+          "_id": "6af15c1b5d7cdf1b70c53d38"
+        },
+        {
+          "actor": "6ae85685c0b463dcfdbdfc02",
+          "action": "approved",
+          "comment": "yyyyyyyyyyyyy",
+          "at": "2026-11-09T05:37:31.808Z",
+          "_id": "6af15c1b5d7cdf1b70c53d3e"
+        },
+        {
+          "actor": "6ae85685c0b463dcfdbdfc02",
+          "action": "authorized",
+          "comment": "yyyyyyyyyyyyy",
+          "at": "2026-11-09T05:37:31.817Z",
+          "_id": "6af15c1b5d7cdf1b70c53d45"
+        }
+      ],
+      "createdAt": "2026-11-09T05:01:55.935Z",
+      "updatedAt": "2026-11-09T05:37:31.819Z",
+      "__v": 3,
+      "authorizedAmount": 3000,
+      "paymentConfirmedAt": "2026-11-09T05:37:31.796Z",
+      "paymentConfirmedBy": "6ae85685c0b463dcfdbdfc02",
+      "paymentReference": "One-step authorization",
+      "adminVpComment": "yyyyyyyyyyyyy",
+      "adminVpDecidedAt": "2026-11-09T05:37:31.808Z",
+      "adminVpDecidedBy": "6ae85685c0b463dcfdbdfc02",
+      "adminVpDecision": "approved",
+      "adminVpForwardedAt": "2026-11-09T05:37:31.816Z",
+      "financeAmountConfirmedAt": null,
+      "financeAmountConfirmedBy": null,
+      "financeConfirmedAmount": null,
+      "financeModeSelectedAt": null,
+      "financePaidAt": null,
+      "financePaymentConfirmedAt": null,
+      "financePaymentConfirmedBy": null,
+      "financePaymentMode": null,
+      "financeReference": null,
+      "financeReportGeneratedAt": null,
+      "financeReviewConfirmedAt": null,
+      "financeReviewConfirmedBy": null,
+      "financeSelectedRequest": null,
+      "financeSimulatedAt": null,
+      "financeSimulatedBy": null,
+      "industrialComment": null,
+      "industrialDecidedAt": null,
+      "industrialDecidedBy": null,
+      "industrialDecision": null,
+      "industrialForwardedAt": null,
+      "industrialLettersReviewedAt": null,
+      "industrialLettersReviewedBy": null
+    },
+    {
+      "_id": "6af153c383aacb0e4a5b2f62",
+      "batchName": "DEMO-PendingIndustrial",
+      "batchMonth": "January",
+      "batchCode": "BT-202526-F01-DEMOPEND-4",
+      "semester": "First",
+      "academicYear": "2025/26",
+      "createdBy": "6ae85685c0b463dcfdbdfbff",
+      "students": [
+        "6aea28239174ded60049e4aa"
+      ],
+      "status": "pending_industrial",
+      "history": [
+        {
+          "actor": "6ae85685c0b463dcfdbdfbff",
+          "action": "approved",
+          "comment": "Documents checked — forwarding to the College Office",
+          "at": "2026-11-09T05:01:55.946Z",
+          "_id": "6af153c383aacb0e4a5b2f63"
+        },
+        {
+          "actor": "6ae85685c0b463dcfdbdfc00",
+          "action": "approved",
+          "comment": "College review passed — endorsing to the Academic VP",
+          "at": "2026-11-09T05:01:55.949Z",
+          "_id": "6af153c383aacb0e4a5b2f64"
+        },
+        {
+          "actor": "6ae85685c0b463dcfdbdfc01",
+          "action": "approved",
+          "comment": "Academic eligibility confirmed — sending to the Admin VP",
+          "at": "2026-11-09T05:01:55.952Z",
+          "_id": "6af153c383aacb0e4a5b2f65"
+        },
+        {
+          "actor": "6ae85685c0b463dcfdbdfc02",
+          "action": "approved",
+          "comment": "Budget authorized — sending to Industrial Linkage",
+          "at": "2026-11-09T05:01:55.954Z",
+          "_id": "6af153c383aacb0e4a5b2f66"
+        }
+      ],
+      "createdAt": "2026-11-09T05:01:55.973Z",
+      "updatedAt": "2026-11-09T05:01:55.973Z",
+      "__v": 0
+    }
+  ],
+  "requests": [
+    {
+      "_id": "6ad37179c9465e4101a77067",
+      "batch": "6ad37179c9465e4101a77066",
+      "student": "6ad3707cc9465e4101a77041",
+      "return": "6ad370ddc9465e4101a77044",
+      "dailyRate": 100,
+      "durationDays": 8,
+      "amount": 800,
+      "status": "pending_industrial",
+      "__v": 0,
+      "createdAt": "2026-10-17T13:00:41.499Z",
+      "updatedAt": "2026-10-17T14:12:17.932Z",
+      "collegeApprovalComment": "all studen are good"
+    },
+    {
+      "_id": "6ad37179c9465e4101a77068",
+      "batch": "6ad37179c9465e4101a77066",
+      "student": "6ad33549531fc2986827ea27",
+      "return": "6ad3359f531fc2986827ea2a",
+      "dailyRate": 100,
+      "durationDays": 38,
+      "amount": 3800,
+      "status": "pending_industrial",
+      "__v": 0,
+      "createdAt": "2026-10-17T13:00:41.500Z",
+      "updatedAt": "2026-10-17T14:12:17.932Z",
+      "collegeApprovalComment": "all studen are good"
+    },
+    {
+      "_id": "6ad37179c9465e4101a77069",
+      "batch": "6ad37179c9465e4101a77066",
+      "student": "6abdf5c6e5527684e06cb9c1",
+      "return": "6ad21a210fced72a0d1d3cd4",
+      "dailyRate": 100,
+      "durationDays": 39,
+      "amount": 3900,
+      "status": "pending_industrial",
+      "__v": 0,
+      "createdAt": "2026-10-17T13:00:41.500Z",
+      "updatedAt": "2026-10-17T14:12:17.932Z",
+      "collegeApprovalComment": "all studen are good"
+    },
+    {
+      "_id": "6ad9e06c9eabf41c2863859f",
+      "batch": "6ad9e06c9eabf41c2863859e",
+      "student": "6ad9de149eabf41c28638561",
+      "return": "6ad9df769eabf41c28638570",
+      "dailyRate": 100,
+      "durationDays": 1,
+      "amount": 100,
+      "status": "pending_industrial",
+      "__v": 0,
+      "createdAt": "2026-10-22T10:07:40.341Z",
+      "updatedAt": "2026-10-22T10:17:11.359Z",
+      "collegeApprovalComment": "good and correct information!!!",
+      "rejectionReason": null
+    },
+    {
+      "_id": "6ad9e06c9eabf41c286385a0",
+      "batch": "6ad9e06c9eabf41c2863859e",
+      "student": "6ad9de6f9eabf41c28638562",
+      "return": "6ad9df5a9eabf41c2863856d",
+      "dailyRate": 100,
+      "durationDays": 32,
+      "amount": 3200,
+      "status": "pending_industrial",
+      "__v": 0,
+      "createdAt": "2026-10-22T10:07:40.341Z",
+      "updatedAt": "2026-10-22T10:17:11.359Z",
+      "collegeApprovalComment": "ghhjj",
+      "rejectionReason": null
+    },
+    {
+      "_id": "6ad9e06c9eabf41c286385a1",
+      "batch": "6ad9e06c9eabf41c2863859e",
+      "student": "6ad9dec29eabf41c28638563",
+      "return": "6ad9df399eabf41c2863856a",
+      "dailyRate": 100,
+      "durationDays": 32,
+      "amount": 3200,
+      "status": "pending_industrial",
+      "__v": 0,
+      "createdAt": "2026-10-22T10:07:40.341Z",
+      "updatedAt": "2026-10-22T10:17:11.359Z",
+      "collegeApprovalComment": "fddsww",
+      "rejectionReason": null
+    },
+    {
+      "_id": "6ad9e06c9eabf41c286385a2",
+      "batch": "6ad9e06c9eabf41c2863859e",
+      "student": "6ad3707cc9465e4101a77041",
+      "return": "6ad370ddc9465e4101a77044",
+      "dailyRate": 100,
+      "durationDays": 8,
+      "amount": 800,
+      "status": "pending_industrial",
+      "__v": 0,
+      "createdAt": "2026-10-22T10:07:40.341Z",
+      "updatedAt": "2026-10-22T10:17:11.359Z",
+      "collegeApprovalComment": "ddd",
+      "rejectionReason": null
+    },
+    {
+      "_id": "6ad9e06c9eabf41c286385a3",
+      "batch": "6ad9e06c9eabf41c2863859e",
+      "student": "6ad33549531fc2986827ea27",
+      "return": "6ad3359f531fc2986827ea2a",
+      "dailyRate": 100,
+      "durationDays": 38,
+      "amount": 3800,
+      "status": "pending_industrial",
+      "__v": 0,
+      "createdAt": "2026-10-22T10:07:40.341Z",
+      "updatedAt": "2026-10-22T10:17:11.359Z",
+      "collegeApprovalComment": "hyuyutt",
+      "rejectionReason": null
+    },
+    {
+      "_id": "6ad9e06c9eabf41c286385a4",
+      "batch": "6ad9e06c9eabf41c2863859e",
+      "student": "6abdf5c6e5527684e06cb9c1",
+      "return": "6ad21a210fced72a0d1d3cd4",
+      "dailyRate": 100,
+      "durationDays": 39,
+      "amount": 3900,
+      "status": "pending_industrial",
+      "__v": 0,
+      "createdAt": "2026-10-22T10:07:40.341Z",
+      "updatedAt": "2026-10-22T10:17:11.359Z",
+      "collegeApprovalComment": "dfgg",
+      "rejectionReason": null
+    },
+    {
+      "_id": "6aea1e2049de73de9980c772",
+      "batch": "6aea1e2049de73de9980c771",
+      "student": "6aea1b0a49de73de9980c70b",
+      "return": "6aea1d9f49de73de9980c72e",
+      "dailyRate": 100,
+      "durationDays": 30,
+      "amount": 3000,
+      "studentPhone": "+251900751895",
+      "status": "pending_industrial",
+      "missingInfoSnapshot": [],
+      "__v": 0,
+      "createdAt": "2026-11-03T17:47:12.094Z",
+      "updatedAt": "2026-11-09T05:37:22.787Z",
+      "collegeApprovalComment": "dfghjk",
+      "rejectionReason": null
+    },
+    {
+      "_id": "6aea1e2049de73de9980c773",
+      "batch": "6aea1e2049de73de9980c771",
+      "student": "6aea1b4d49de73de9980c70c",
+      "return": "6aea1d6049de73de9980c727",
+      "dailyRate": 100,
+      "durationDays": 30,
+      "amount": 3000,
+      "studentPhone": "0988040634",
+      "status": "pending_industrial",
+      "missingInfoSnapshot": [],
+      "__v": 0,
+      "createdAt": "2026-11-03T17:47:12.094Z",
+      "updatedAt": "2026-11-09T05:37:22.787Z",
+      "collegeApprovalComment": "fffffffffffffff",
+      "rejectionReason": null
+    },
+    {
+      "_id": "6aea1e2049de73de9980c774",
+      "batch": "6aea1e2049de73de9980c771",
+      "student": "6aea1b9949de73de9980c70d",
+      "return": "6aea1d2b49de73de9980c720",
+      "dailyRate": 100,
+      "durationDays": 30,
+      "amount": 3000,
+      "studentPhone": "090898098798",
+      "status": "pending_industrial",
+      "missingInfoSnapshot": [],
+      "__v": 0,
+      "createdAt": "2026-11-03T17:47:12.094Z",
+      "updatedAt": "2026-11-09T05:37:22.787Z",
+      "collegeApprovalComment": "fffffffffffffffffffff",
+      "rejectionReason": null
+    },
+    {
+      "_id": "6aea1e2049de73de9980c775",
+      "batch": "6aea1e2049de73de9980c771",
+      "student": "6aea1bdd49de73de9980c70e",
+      "return": "6aea1ce649de73de9980c719",
+      "dailyRate": 100,
+      "durationDays": 30,
+      "amount": 3000,
+      "studentPhone": "0988040635",
+      "status": "pending_industrial",
+      "missingInfoSnapshot": [],
+      "__v": 0,
+      "createdAt": "2026-11-03T17:47:12.094Z",
+      "updatedAt": "2026-11-09T05:37:22.787Z",
+      "collegeApprovalComment": "fffffffffffff",
+      "rejectionReason": null
+    },
+    {
+      "_id": "6af153c383aacb0e4a5b2f61",
+      "batch": "6af153c383aacb0e4a5b2f5d",
+      "student": "6aea28239174ded60049e4aa",
+      "return": "6aea28249174ded60049e4ab",
+      "dailyRate": 100,
+      "durationDays": 30,
+      "amount": 3000,
+      "studentPhone": "+251911000001",
+      "status": "pending_industrial",
+      "missingInfoSnapshot": [],
+      "createdAt": "2026-11-09T05:01:55.940Z",
+      "updatedAt": "2026-11-09T05:37:31.823Z",
+      "__v": 0
+    },
+    {
+      "_id": "6af153c383aacb0e4a5b2f67",
+      "batch": "6af153c383aacb0e4a5b2f62",
+      "student": "6aea28239174ded60049e4aa",
+      "return": "6aea28249174ded60049e4ab",
+      "dailyRate": 100,
+      "durationDays": 30,
+      "amount": 3000,
+      "studentPhone": "+251911000001",
+      "status": "pending_industrial",
+      "missingInfoSnapshot": [],
+      "createdAt": "2026-11-09T05:01:55.980Z",
+      "updatedAt": "2026-11-09T05:01:55.980Z",
+      "__v": 0
+    }
+  ],
+  "returns": [],
+  "users": [
+    {
+      "_id": "6ae85685c0b463dcfdbdfc03",
+      "fullName": "Industrial Linkage",
+      "institutionalId": "WCU-IND-001",
+      "username": "industrial",
+      "email": "industrial@wcu.edu.et",
+      "role": "industrial",
+      "accountStatus": "active",
+      "verifiedIdentity": false,
+      "department": "Computer Science",
+      "createdAt": "2026-11-02T09:23:17.711Z",
+      "updatedAt": "2026-11-02T09:23:17.711Z",
+      "__v": 0
+    }
+  ]
+}
