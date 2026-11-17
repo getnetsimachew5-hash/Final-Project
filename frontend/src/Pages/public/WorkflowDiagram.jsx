@@ -152,7 +152,7 @@ export default function WorkflowDiagram() {
 
   return (
     <Layout>
-      <main className="sipms-main">
+      <>
         {/* ── Page Header ── */}
         <div className="wf-page-header">
           <span className="wf-pill">📋 System Architecture</span>
@@ -263,32 +263,57 @@ export default function WorkflowDiagram() {
         </section>
 
         {/* ── System Interaction Summary ── */}
-        <section className="wf-summary-section">
-          <h2 className="wf-summary-title">Complete System Interaction</h2>
-          <p className="muted" style={{ textAlign: 'center', marginBottom: '2rem' }}>
-            The most important sequence — how all 7 actors pass data end-to-end.
-          </p>
-          <div className="wf-timeline">
-            {ACTORS.map((actor, idx) => (
-              <div key={actor.id} className="wf-timeline-item">
-                <div className="wf-tl-icon" style={{ background: actor.color }}>{actor.icon}</div>
-                <div className="wf-tl-content">
-                  <div className="wf-tl-title" style={{ color: actor.color }}>{actor.title}</div>
-                  <div className="wf-tl-desc">{actor.action}</div>
+        <section className="wf-summary-section" aria-labelledby="wf-summary-title">
+          <div className="wf-summary-head">
+            <span className="wf-summary-eyebrow">End-to-end data flow</span>
+            <h2 className="wf-summary-title" id="wf-summary-title">
+              Complete System Interaction
+            </h2>
+            <p className="wf-summary-sub">
+              The most important sequence — how the student and five offices pass
+              data end-to-end until the final TeleBirr payment is completed.
+            </p>
+          </div>
+
+          <div className="wf-flow-meta">
+            <span><strong>6</strong> actors</span>
+            <span><strong>5</strong> offices</span>
+            <span><strong>1</strong> final payment</span>
+          </div>
+
+          <div className="wf-flow-grid">
+            {ACTORS.map((actor) => (
+              <article
+                key={actor.id}
+                className="wf-flow-card"
+                style={{
+                  '--actor-color': actor.color,
+                  '--actor-light': actor.light,
+                  '--actor-border': actor.border,
+                }}
+              >
+                <div className="wf-flow-top">
+                  <span className="wf-flow-step">Step {actor.step}</span>
+                  <span className="wf-flow-icon" aria-hidden="true">{actor.icon}</span>
                 </div>
-                {idx < ACTORS.length - 1 && <div className="wf-tl-arrow">→</div>}
-              </div>
+                <h3 className="wf-flow-title">{actor.title}</h3>
+                <p className="wf-flow-desc">{actor.action}</p>
+                <span className="wf-flow-foot">Passes data forward</span>
+              </article>
             ))}
-            <div className="wf-tl-paid">
-              <div className="wf-tl-icon" style={{ background: '#15803d' }}>✅</div>
-              <div className="wf-tl-content">
-                <div className="wf-tl-title" style={{ color: '#15803d' }}>PAID</div>
-                <div className="wf-tl-desc">Student receives payment & notification</div>
+
+            <article className="wf-flow-card wf-flow-paid">
+              <div className="wf-flow-top">
+                <span className="wf-flow-step">Result</span>
+                <span className="wf-flow-icon" aria-hidden="true">✅</span>
               </div>
-            </div>
+              <h3 className="wf-flow-title">Paid</h3>
+              <p className="wf-flow-desc">Student receives payment &amp; notification.</p>
+              <span className="wf-flow-foot">End of workflow</span>
+            </article>
           </div>
         </section>
-      </main>
+      </>
 
       {/* ── Scoped Styles ── */}
       <style>{`
@@ -633,75 +658,276 @@ export default function WorkflowDiagram() {
           margin: 0;
         }
 
-        /* ── Summary Timeline ───────────────────────────── */
+        /* ── System Interaction Summary ─────────────────── */
         .wf-summary-section {
-          background: #ffffff;
+          position: relative;
+          background:
+            radial-gradient(900px 320px at 6% 0%, rgba(5, 150, 105, 0.09), transparent 60%),
+            radial-gradient(700px 260px at 94% 100%, rgba(251, 191, 36, 0.12), transparent 62%),
+            #ffffff;
           border: 1px solid var(--ink-200);
-          border-radius: 18px;
-          padding: 2.5rem 2rem;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+          border-radius: 24px;
+          padding: clamp(1.6rem, 4vw, 3rem);
+          box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
           margin-bottom: 3rem;
+        }
+        .wf-summary-section::before {
+          content: '';
+          position: absolute;
+          inset: 0 0 auto;
+          height: 4px;
+          border-radius: 24px 24px 0 0;
+          background: linear-gradient(90deg, var(--primary-600), var(--accent-gold), var(--primary-500));
+        }
+        .wf-summary-head {
+          max-width: 720px;
+          margin: 0 auto 1.35rem;
+          text-align: center;
+        }
+        .wf-summary-eyebrow {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.4rem;
+          margin-bottom: 0.7rem;
+          padding: 0.28rem 0.75rem;
+          border-radius: 999px;
+          background: var(--primary-50, #ecfdf5);
+          border: 1px solid var(--primary-200, #a7f3d0);
+          color: var(--primary-800, #065f46);
+          font-family: 'Inter', sans-serif;
+          font-size: 0.68rem;
+          font-weight: 800;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+        }
+        .wf-summary-eyebrow::before {
+          content: '';
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: var(--accent-gold, #fbbf24);
         }
         .wf-summary-title {
           font-family: 'Outfit', sans-serif;
-          font-size: clamp(1.35rem, 2.5vw, 1.65rem);
+          font-size: clamp(1.45rem, 2.7vw, 1.85rem);
           font-weight: 900;
           text-align: center;
           color: var(--ink-950);
-          letter-spacing: -0.03em;
-          margin: 0 0 0.5rem;
+          letter-spacing: -0.035em;
+          margin: 0 0 0.55rem;
         }
-        .wf-timeline {
+        .wf-summary-sub {
+          max-width: 58ch;
+          margin: 0 auto;
+          color: var(--ink-600);
+          font-family: 'Inter', sans-serif;
+          font-size: clamp(0.88rem, 1.5vw, 0.98rem);
+          line-height: 1.65;
+        }
+        .wf-flow-meta {
           display: flex;
           flex-wrap: wrap;
           align-items: center;
           justify-content: center;
-          gap: 0.5rem;
-          margin-top: 0;
+          gap: 0.55rem;
+          margin: 0 0 1.9rem;
         }
-        .wf-timeline-item {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-        }
-        .wf-tl-icon {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 1.15rem;
-          flex-shrink: 0;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        }
-        .wf-tl-content {
-          display: flex;
-          flex-direction: column;
-        }
-        .wf-tl-title {
-          font-family: 'Outfit', sans-serif;
-          font-size: 0.82rem;
-          font-weight: 800;
-          letter-spacing: -0.01em;
-        }
-        .wf-tl-desc {
+        .wf-flow-meta span {
+          display: inline-flex;
+          align-items: baseline;
+          gap: 0.35rem;
+          padding: 0.38rem 0.8rem;
+          border: 1px solid var(--ink-200);
+          border-radius: 999px;
+          background: rgba(255, 255, 255, 0.78);
+          color: var(--ink-600);
           font-family: 'Inter', sans-serif;
           font-size: 0.72rem;
-          color: var(--ink-500);
-          max-width: 90px;
-          line-height: 1.35;
+          font-weight: 600;
         }
-        .wf-tl-arrow {
-          font-size: 1.1rem;
+        .wf-flow-meta strong {
+          color: var(--primary-700, #047857);
+          font-family: 'Outfit', sans-serif;
+          font-size: 0.92rem;
+          font-weight: 800;
+        }
+
+        /* A 4-column flow board. The final PAID card spans two columns so the
+           last row stays balanced on desktop. */
+        .wf-flow-grid {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 1.35rem 1.6rem;
+          align-items: stretch;
+        }
+        .wf-flow-card {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          gap: 0.45rem;
+          min-width: 0;
+          padding: 1.15rem 1.15rem 1rem;
+          background: #ffffff;
+          border: 1px solid var(--actor-border);
+          border-top: 4px solid var(--actor-color);
+          border-radius: 16px;
+          box-shadow: 0 10px 24px rgba(15, 23, 42, 0.055);
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .wf-flow-card::before {
+          content: '';
+          position: absolute;
+          top: 4px;
+          right: 0;
+          left: 0;
+          height: 72px;
+          border-radius: 12px 12px 0 0;
+          background: linear-gradient(180deg, var(--actor-light), transparent);
+          opacity: 0.72;
+          pointer-events: none;
+        }
+        .wf-flow-card > * {
+          position: relative;
+          z-index: 1;
+        }
+        .wf-flow-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 18px 36px rgba(15, 23, 42, 0.12);
+        }
+        .wf-flow-card::after {
+          content: '→';
+          position: absolute;
+          top: 50%;
+          right: -1.1rem;
+          transform: translateY(-50%);
           color: var(--ink-300);
-          font-weight: 700;
-          margin: 0 0.1rem;
+          font-size: 1rem;
+          font-weight: 800;
+          line-height: 1;
+          pointer-events: none;
         }
-        .wf-tl-paid {
+        .wf-flow-card:nth-child(4n)::after,
+        .wf-flow-card:last-child::after {
+          display: none;
+        }
+        .wf-flow-top {
           display: flex;
           align-items: center;
-          gap: 0.5rem;
+          justify-content: space-between;
+          gap: 0.6rem;
+        }
+        .wf-flow-step {
+          display: inline-flex;
+          align-items: center;
+          padding: 0.2rem 0.55rem;
+          border: 1px solid var(--actor-border);
+          border-radius: 999px;
+          background: var(--actor-light);
+          color: var(--actor-color);
+          font-family: 'Outfit', sans-serif;
+          font-size: 0.66rem;
+          font-weight: 800;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+        .wf-flow-icon {
+          display: grid;
+          place-items: center;
+          flex-shrink: 0;
+          width: 42px;
+          height: 42px;
+          border: 1px solid var(--actor-border);
+          border-radius: 12px;
+          background: var(--actor-light);
+          font-size: 1.2rem;
+        }
+        .wf-flow-title {
+          margin: 0.15rem 0 0;
+          color: var(--ink-950);
+          font-family: 'Outfit', sans-serif;
+          font-size: 1rem;
+          font-weight: 800;
+          letter-spacing: -0.02em;
+          line-height: 1.25;
+        }
+        .wf-flow-desc {
+          margin: 0;
+          color: var(--ink-600);
+          font-family: 'Inter', sans-serif;
+          font-size: 0.8rem;
+          line-height: 1.5;
+        }
+        .wf-flow-foot {
+          margin-top: auto;
+          padding-top: 0.55rem;
+          color: var(--ink-400);
+          font-family: 'Inter', sans-serif;
+          font-size: 0.64rem;
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+        }
+        .wf-flow-paid {
+          --actor-color: #15803d;
+          --actor-light: rgba(255, 255, 255, 0.16);
+          --actor-border: rgba(255, 255, 255, 0.32);
+          grid-column: span 2;
+          background: linear-gradient(135deg, #064e3b 0%, #047857 55%, #059669 100%);
+          border-color: #059669;
+          box-shadow: 0 16px 36px rgba(5, 150, 105, 0.28);
+        }
+        .wf-flow-paid::before {
+          top: 4px;
+          bottom: 0;
+          height: auto;
+          border-radius: 12px;
+          background: radial-gradient(320px 140px at 85% 0%, rgba(251, 191, 36, 0.22), transparent 70%);
+          opacity: 1;
+        }
+        .wf-flow-paid .wf-flow-step,
+        .wf-flow-paid .wf-flow-icon {
+          background: rgba(255, 255, 255, 0.14);
+          border-color: rgba(255, 255, 255, 0.28);
+          color: #ffffff;
+        }
+        .wf-flow-paid .wf-flow-title {
+          color: #ffffff;
+          font-size: 1.15rem;
+        }
+        .wf-flow-paid .wf-flow-desc {
+          color: rgba(255, 255, 255, 0.82);
+        }
+        .wf-flow-paid .wf-flow-foot {
+          color: rgba(255, 255, 255, 0.65);
+        }
+
+        @media (max-width: 1100px) {
+          .wf-flow-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+          .wf-flow-grid .wf-flow-card::after { display: block; }
+          .wf-flow-grid .wf-flow-card:nth-child(3n)::after,
+          .wf-flow-grid .wf-flow-card:last-child::after { display: none; }
+          .wf-flow-paid { grid-column: 1 / -1; }
+        }
+        @media (max-width: 820px) {
+          .wf-flow-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+          .wf-flow-grid .wf-flow-card::after { display: block; }
+          .wf-flow-grid .wf-flow-card:nth-child(2n)::after,
+          .wf-flow-grid .wf-flow-card:last-child::after { display: none; }
+        }
+        @media (max-width: 560px) {
+          .wf-flow-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+          .wf-flow-grid .wf-flow-card:nth-child(n)::after {
+            content: '↓';
+            display: block;
+            top: auto;
+            right: auto;
+            bottom: -1.05rem;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+          .wf-flow-grid .wf-flow-card:last-child::after { display: none; }
+          .wf-flow-paid { grid-column: auto; }
         }
 
         /* ── Responsive: compact block arrangement ───────── */
@@ -741,11 +967,11 @@ export default function WorkflowDiagram() {
           .wf-paid-inner { padding: 1.1rem 1.5rem; }
           .wf-paid-label { font-size: 1.45rem; letter-spacing: 2px; }
           .wf-paid-sub { font-size: 0.78rem; text-align: center; }
-          .wf-summary-section { padding: 1.4rem 1rem; }
-          .wf-timeline { flex-direction: column; align-items: stretch; gap: 0.45rem; }
-          .wf-timeline-item { flex-direction: row; align-items: flex-start; }
-          .wf-tl-desc { max-width: none; }
-          .wf-tl-arrow { transform: rotate(90deg); margin: 0 auto; }
+          .wf-summary-section { padding: 1.5rem 1rem; }
+          .wf-summary-head { margin-bottom: 1.15rem; }
+          .wf-flow-meta { margin-bottom: 1.35rem; }
+          .wf-flow-grid { gap: 1.2rem 1.35rem; }
+          .wf-flow-card { padding: 1rem; }
         }
 
         @media (max-width: 480px) {
@@ -760,6 +986,11 @@ export default function WorkflowDiagram() {
           .wf-fn-num { min-width: 17px; width: 17px; height: 17px; font-size: 0.6rem; }
           .wf-seq-label { font-size: 0.78rem; }
           .wf-paid-inner { padding: 1rem 1.1rem; width: 100%; }
+          .wf-summary-section { padding: 1.25rem 0.85rem; }
+          .wf-flow-card { padding: 0.9rem; }
+          .wf-flow-title { font-size: 0.95rem; }
+          .wf-flow-desc { font-size: 0.78rem; }
+          .wf-flow-foot { font-size: 0.6rem; }
         }
       `}</style>
     </Layout>

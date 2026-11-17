@@ -1,0 +1,365 @@
+/* ============================================================
+   SIPMS SHARED FOOTER
+   Attractive, responsive footer used by public pages and every
+   role portal. Scoped entirely under .sipms-footer.
+   ============================================================ */
+
+.sipms-footer {
+  --footer-ink: #d9e9e1;
+  --footer-muted: #9bb3a7;
+  --footer-line: rgba(255, 255, 255, 0.11);
+  --footer-gold: var(--accent-gold, #fbbf24);
+  --footer-emerald: var(--primary-500, #10b981);
+
+  position: relative;
+  isolation: isolate;
+  margin-top: auto;
+  padding: clamp(2.8rem, 5vw, 4.6rem) clamp(1.15rem, 4vw, 2.75rem) 1.25rem;
+  color: var(--footer-ink);
+  background:
+    radial-gradient(1050px 420px at 7% -12%, rgba(16, 185, 129, 0.30), transparent 60%),
+    radial-gradient(860px 360px at 95% 112%, rgba(251, 191, 36, 0.15), transparent 64%),
+    linear-gradient(155deg, #063c2d 0%, #04291f 48%, #01120c 100%);
+  overflow: hidden;
+}
+
+/* Animated emerald → gold accent line. */
+.sipms-footer::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--footer-emerald),
+    var(--footer-gold),
+    #34d399,
+    var(--footer-emerald)
+  );
+  background-size: 220% 100%;
+  animation: sipmsFooterShimmer 9s linear infinite;
+}
+
+/* Very subtle grid texture for depth. */
+.sipms-footer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+  background-size: 46px 46px;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.65), transparent 78%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.65), transparent 78%);
+}
+
+@keyframes sipmsFooterShimmer {
+  to { background-position: 220% 0; }
+}
+
+.sipms-footer .cols {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns:
+    minmax(235px, 1.45fr)
+    repeat(3, minmax(145px, 1fr))
+    minmax(235px, 1.12fr);
+  gap: clamp(1.6rem, 3vw, 2.6rem);
+  align-items: start;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.sipms-footer .cols > div {
+  min-width: 0;
+}
+
+/* ---------- Section headings ---------- */
+.sipms-footer h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 1.15rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.sipms-footer .cols > div:not(.brand) > h4::after {
+  content: '';
+  flex: 0 1 34px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--footer-gold), transparent);
+}
+
+/* ---------- Brand block ---------- */
+.sipms-footer .brand h4 {
+  margin-bottom: 1rem;
+  font-size: 1.35rem;
+  letter-spacing: 0.13em;
+}
+
+.sipms-footer .brand h4::before {
+  content: 'W';
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  border: 1px solid rgba(251, 191, 36, 0.48);
+  background: linear-gradient(135deg, #10b981 0%, #047857 55%, #065f46 100%);
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 800;
+  box-shadow:
+    0 8px 22px rgba(5, 150, 105, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.sipms-footer .brand p {
+  margin: 0.4rem 0;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--footer-muted);
+}
+
+.sipms-footer .brand p:first-of-type {
+  color: #f2fbf6;
+  font-weight: 600;
+}
+
+/* ---------- Link columns ---------- */
+.sipms-footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sipms-footer li {
+  margin-bottom: 0.5rem;
+  overflow-wrap: anywhere;
+}
+
+.sipms-footer a {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  padding-bottom: 2px;
+  color: var(--footer-ink);
+  text-decoration: none;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  transition: color 0.18s ease, transform 0.18s ease;
+}
+
+.sipms-footer a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--footer-gold), rgba(251, 191, 36, 0.2));
+  transition: width 0.2s ease;
+}
+
+.sipms-footer a:hover {
+  color: var(--footer-gold);
+  transform: translateX(3px);
+}
+
+.sipms-footer a:hover::after {
+  width: 100%;
+}
+
+.sipms-footer a:focus-visible {
+  outline: 2px solid var(--footer-gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.sipms-footer p {
+  font-size: 0.88rem;
+}
+
+/* ---------- Contact card ---------- */
+.sipms-footer .footer-contact {
+  padding: 1rem 1.05rem 1.1rem;
+  border: 1px solid var(--footer-line);
+  border-radius: 16px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.025));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 16px 40px rgba(0, 0, 0, 0.18);
+}
+
+.sipms-footer .footer-contact h4 {
+  margin-bottom: 0.85rem;
+}
+
+.sipms-footer .footer-location {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin: 0.55rem 0;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: var(--footer-muted);
+  overflow-wrap: anywhere;
+}
+
+.sipms-footer .footer-ico {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 26px;
+  width: 26px;
+  height: 26px;
+  margin-top: 1px;
+  border-radius: 8px;
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  background: rgba(251, 191, 36, 0.1);
+  font-size: 0.76rem;
+  line-height: 1;
+}
+
+.sipms-footer .footer-address strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.sipms-footer .footer-contact a {
+  color: #e7f5ee;
+}
+
+.sipms-footer .footer-contact a:hover {
+  color: var(--footer-gold);
+}
+
+/* ---------- Copyright bar ---------- */
+.sipms-footer .copy {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  max-width: 1240px;
+  margin: 2.6rem auto 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--footer-line);
+  color: #8fa89b;
+  text-align: center;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.sipms-footer .copy::before {
+  content: '';
+  flex: 0 0 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--footer-gold);
+  box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.12);
+}
+
+/* ---------- Responsive layout ---------- */
+@media (max-width: 1100px) {
+  .sipms-footer .cols {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .sipms-footer .brand {
+    grid-column: 1 / -1;
+  }
+
+  .sipms-footer .footer-contact {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 760px) {
+  .sipms-footer {
+    padding: 2.75rem 1.15rem 1.1rem;
+  }
+
+  .sipms-footer .cols {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .sipms-footer .brand {
+    grid-column: 1 / -1;
+  }
+
+  .sipms-footer .footer-contact {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .sipms-footer .cols {
+    grid-template-columns: 1fr;
+    gap: 1.45rem;
+  }
+
+  .sipms-footer .brand,
+  .sipms-footer .footer-contact {
+    grid-column: auto;
+  }
+
+  .sipms-footer .copy {
+    margin-top: 1.75rem;
+    font-size: 0.78rem;
+  }
+
+  .sipms-footer .copy::before {
+    display: none;
+  }
+}
+
+/* ---------- Motion & print preferences ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .sipms-footer::before {
+    animation: none;
+  }
+
+  .sipms-footer a,
+  .sipms-footer a::after {
+    transition: none;
+  }
+
+  .sipms-footer a:hover {
+    transform: none;
+  }
+}
+
+@media print {
+  .sipms-footer {
+    background: #ffffff;
+    color: #111827;
+  }
+
+  .sipms-footer::before,
+  .sipms-footer::after {
+    display: none;
+  }
+
+  .sipms-footer .cols {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
